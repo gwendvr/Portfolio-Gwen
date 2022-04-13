@@ -24,13 +24,9 @@ class TableauCompetence
     #[ORM\Column(type: 'date')]
     private $EndDate;
 
-    #[ORM\OneToMany(mappedBy: 'TableauCompetence', targetEntity: Category::class)]
-    private $Category;
-
-    public function __construct()
-    {
-        $this->Category = new ArrayCollection();
-    }
+    #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'competences')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $category;
 
     public function getId(): ?int
     {
@@ -73,32 +69,14 @@ class TableauCompetence
         return $this;
     }
 
-    /**
-     * @return Collection<int, Category>
-     */
-    public function getCategory(): Collection
+    public function getCategory(): ?Category
     {
-        return $this->Category;
+        return $this->category;
     }
 
-    public function addCategory(Category $category): self
+    public function setCategory(?Category $category): self
     {
-        if (!$this->Category->contains($category)) {
-            $this->Category[] = $category;
-            $category->setTableauCompetence($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCategory(Category $category): self
-    {
-        if ($this->Category->removeElement($category)) {
-            // set the owning side to null (unless already changed)
-            if ($category->getTableauCompetence() === $this) {
-                $category->setTableauCompetence(null);
-            }
-        }
+        $this->category = $category;
 
         return $this;
     }

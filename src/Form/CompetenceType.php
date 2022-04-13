@@ -17,9 +17,9 @@ class CompetenceType extends AbstractType
             ->add('titre')
             ->add('periode')
             ->add('EndDate')
-            ->add('Category', EntityType::class, [
+            ->add('category', EntityType::class, [
                 'class' => Category::class,
-                'choice_label' => 'name',
+                'choice_label' => 'name'
             ])
         ;
     }

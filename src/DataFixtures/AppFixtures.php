@@ -32,5 +32,8 @@ class AppFixtures extends Fixture
 
         $category = new Category();
         $category->setName('Gérer le patrimoine informatique');
+
+        $manager->persist($category);
+        $manager->flush();
     }
 }
