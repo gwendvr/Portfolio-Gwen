@@ -19,7 +19,7 @@ class TableauCompetence
     private $titre;
 
     #[ORM\Column(type: 'date')]
-    private $periode;
+    private $StartDate;
 
     #[ORM\Column(type: 'date')]
     private $EndDate;
@@ -45,14 +45,14 @@ class TableauCompetence
         return $this;
     }
 
-    public function getPeriode(): ?\DateTimeInterface
+    public function getStartDate(): ?\DateTimeInterface
     {
-        return $this->periode;
+        return $this->StartDate;
     }
 
-    public function setPeriode(\DateTimeInterface $periode): self
+    public function setStartDate(\DateTimeInterface $StartDate): self
     {
-        $this->periode = $periode;
+        $this->StartDate = $StartDate;
 
         return $this;
     }

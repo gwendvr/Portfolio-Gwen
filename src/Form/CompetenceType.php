@@ -15,7 +15,7 @@ class CompetenceType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('periode')
+            ->add('StartDate')
             ->add('EndDate')
             ->add('category', EntityType::class, [
                 'class' => Category::class,
