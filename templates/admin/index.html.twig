@@ -16,6 +16,15 @@
 		{{ competence.StartDate|date("d/m/Y") }}
 		{{ competence.EndDate|date("d/m/Y") }}
         {{ competence.category.name }}</p>
+
+        <a href="{{ path('edit_competence', {'id': competence.id}) }}">Modifier</a>
+        <form method="POST" action="{{ path('delete_competence', {'id': competence.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ competence.id) }}">
+            <button>supprimer</button>
+        </form>
 	{% endfor %}
+
+    <a href="{{ path('create_competence') }}">Créer</a>
 </div>
 {% endblock %}
