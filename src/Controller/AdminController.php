@@ -47,4 +47,24 @@ class AdminController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+    #[Route('/admin/editCompetence/{id}', name:'edit_competence')]
+    public function editCompetence($id, Request $request)
+    {
+        $competences = $this->repoCompetence->find($id);
+        $form = $this->createForm(CompetenceType::class, $competences);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $this->em->flush();
+            $this->addFlash('Success', 'La compétence a bien été modifié !');
+
+            return $this->redirectToRoute('app_admin');
+        }
+        return $this->render("admin/competence/EditCompetence.html.twig", [
+            'form' => $form->createView(),
+            'competences' => $competences
+        ]);
+    }
 }

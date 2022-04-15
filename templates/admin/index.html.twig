@@ -16,6 +16,8 @@
 		{{ competence.StartDate|date("d/m/Y") }}
 		{{ competence.EndDate|date("d/m/Y") }}
         {{ competence.category.name }}</p>
+
+        <a href="{{ path('edit_competence', {'id': competence.id} ) }}">Modifier</a>
 	{% endfor %}
 </div>
 {% endblock %}
