@@ -19,7 +19,12 @@ class AdminController extends AbstractController
         $this->repoCompetence = $repoCompetence;
     }
 
-    #[Route('/admin', name: 'app_admin')]
+    /**
+     * Page d'accueil Admin
+     * 
+     * @Route("/admin", name="app_admin")
+     * @return Response
+     */
     public function index(): Response
     {
         $competences = $this->repoCompetence->findAll();
@@ -29,8 +34,13 @@ class AdminController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/createCompetence', name: 'create_competence')]
-    public function createCompetence(Request $request)
+    /**
+     * Page création admin
+     * 
+     * @Route("/admin/createCompetence", name="create_competence")
+     * @return Response
+     */
+    public function createCompetence(Request $request) : Response
     {
         $competence = new TableauCompetence();
         $form = $this->createForm(CompetenceType::class, $competence);
@@ -48,8 +58,13 @@ class AdminController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/editCompetence/{id}', name:'edit_competence')]
-    public function editCompetence($id, Request $request)
+     /**
+     * Page modification admin
+     * 
+     * @Route("/admin/editCompetence/{id}", name="edit_competence")
+     * @return Response
+     */
+    public function editCompetence($id, Request $request) : Response
     {
         $competences = $this->repoCompetence->find($id);
         $form = $this->createForm(CompetenceType::class, $competences);
@@ -66,5 +81,22 @@ class AdminController extends AbstractController
             'form' => $form->createView(),
             'competences' => $competences
         ]);
+    }
+
+     /**
+     * Page modification admin
+     * 
+     * @Route("/admin/deleteCompetence/{id}", name="delete_competence")
+     */
+    public function deleteCompetence(int $id, Request $request, TableauCompetence $competence)
+    {
+        if($this->isCsrfTokenValid('delete'. $competence->getId(), $request->get('_token')))
+        {
+            $this->em->remove($competence);
+            $this->em->flush();
+            $this->addFlash('Success', 'La compétence a été supprimé !');
+        }
+
+        return $this->redirectToRoute('app_admin');
     }
 }
