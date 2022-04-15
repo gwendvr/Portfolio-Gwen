@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\TableauCompetence;
 use App\Form\CompetenceType;
+use App\Repository\TableauCompetenceRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,16 +13,19 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminController extends AbstractController
 {
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, TableauCompetenceRepository $repoCompetence)
     {
         $this->em = $em;
+        $this->repoCompetence = $repoCompetence;
     }
 
     #[Route('/admin', name: 'app_admin')]
     public function index(): Response
     {
+        $competences = $this->repoCompetence->findAll();
         return $this->render('admin/index.html.twig', [
             'controller_name' => 'AdminController',
+            'competences'=> $competences
         ]);
     }
 

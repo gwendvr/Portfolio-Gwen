@@ -4,5 +4,24 @@
     
 {% block body %}
     {{ form_start(form) }}
+    <div>
+		<h1>La compétence à entrer :</h1>
+		{{ form_widget(form.titre) }}
+	</div>
+    <div>
+		{{ form_label(form.StartDate) }}
+		{{ form_widget(form.StartDate) }}
+	</div>
+    <div>
+		{{ form_label(form.EndDate) }}
+		{{ form_widget(form.EndDate) }}
+	</div>
+     <div>
+		{{ form_label(form.category) }}
+		{{ form_widget(form.category) }}
+	</div>
+    <div>
+		{{ form_widget(form.Enregistrer) }}
+	</div>
     {{ form_end(form) }}
 {% endblock %}
