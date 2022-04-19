@@ -3,18 +3,76 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+ <h1>Bienvenue dans votre bibliothèque !</h1>
+    <div class="wrapper">
+        <h2>
+            <strong>Le parcours Professionnel et formations<span>( 3 )</span></strong>
+        </h2>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/gwend/Portfolio-Gwen/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/gwend/Portfolio-Gwen/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+        <div class="cards">
+            <figure class="card">
+                <img src="./photos/kiwilab.jpg" />
+                <figcaption>Kiwilab</figcaption>
+            </figure>
+
+            <figure class="card">
+                <img src="./photos/CNED.jpg" />
+                <figcaption>CNED</figcaption>
+            </figure>
+
+            <figure class="card">
+                <img src="./photos/charmilles.png" />
+            </figure>
+        </div>
+
+        <h2>
+            <strong>Les Compétences<span>( 4 )</span></strong>
+        </h2>
+
+        <div class="cards">
+            <figure class="card">
+                <img src="./photos/Oc.png" />
+                <figcaption>Open Classroom</figcaption>
+            </figure>
+
+            <figure class="card">
+                <img src="./photos/programmation.png" />
+                <figcaption>Web programming</figcaption>
+            </figure>
+
+            <figure class="card">
+                <img src="./photos/jeu.png" />
+                <figcaption>Jeux et applications</figcaption>
+            </figure>
+        </div>
+
+        <h2>
+            <strong>Les projets</strong>
+        </h2>
+
+        <div class="news">
+            <figure class="article">
+                <img src="./photos/portfolio.jpg" />
+
+                <figcaption>
+                    <h3>Site Portfolio</h3>
+                    <p>
+                        In today’s update, two heads are better than one, and three heads are better than that, as the all-new Flockheart’s Gamble Arcana item for Ogre Magi makes its grand debut.
+                    </p>
+                </figcaption>
+            </figure>
+
+            <figure class="article">
+                <img src="./photos/trex.jpg" />
+
+                <figcaption>
+                    <h3>Jeu du Trex</h3>
+                    <p>
+                        Just in time for Lunar New Year and the Rat’s time in the cyclical place of honor, the Treasure of Unbound Majesty is now available.
+                    </p>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
 {% endblock %}
