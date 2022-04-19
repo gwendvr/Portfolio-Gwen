@@ -25,6 +25,26 @@
         </form>
 	{% endfor %}
 
+    {% for skill in skills %}
+		<p>{{ skill.nom }}
+		{{ skill.description }}
+		{{ skill.image }}</p>
+	{% endfor %}
+
+    {% for formation in formations %}
+		<p>{{ formation.name }}
+		{{formation.description }}
+		{{ formation.image }}</p>
+	{% endfor %}
+
+    {% for project in projects %}
+		<p>{{ project.nom }}
+		{{ project.startDate|date("d/m/Y") }}
+        {{ project.endDate|date("d/m/Y") }}
+        {{ project.description }}
+		{{ project.image }}</p>
+	{% endfor %}
+
     <a href="{{ path('create_competence') }}">Créer</a>
 </div>
 {% endblock %}
