@@ -6,3 +6,136 @@ body {
 body {
     background: #24282f;
 }
+
+a:link {
+    text-decoration: none;
+}
+
+h3 {
+    margin: 0;
+    font-size: 30px;
+}
+
+em {
+    font-size: 15px;
+}
+
+
+/*********** MARGIN ***********/
+
+.blue {
+    color: cadetblue;
+}
+
+.bg-blue {
+    background-color: cadetblue;
+}
+
+.white {
+    color: #ccc;
+}
+
+.bg-white {
+    background-color: aliceblue
+}
+
+.black {
+    color: black;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+
+/*********** MARGIN ***********/
+
+.mg-l {
+    margin: 30px;
+}
+
+.mg-side-l {
+    margin: 0px 30px;
+}
+
+.mg-side-xl {
+    margin: 0px 50px;
+}
+
+.mgr-l {
+    margin-right: 30px;
+}
+
+.mb-xl {
+    margin-bottom: 40px;
+}
+
+
+/*********** PADDING ***********/
+
+.pd-l {
+    padding: 0 30px;
+}
+
+.pd-m {
+    padding: 0px 20px;
+}
+
+
+/*********** CENTRER ***********/
+
+.txt-center {
+    text-align: center;
+}
+
+.item-center {
+    align-items: center;
+}
+
+.jc-c {
+    justify-content: center;
+}
+
+
+/*********** TEXT ***********/
+
+.txt-start {
+    text-align: start;
+}
+
+
+/*********** DISPLAY ***********/
+
+.d-flex {
+    display: flex;
+}
+
+.jc-sb {
+    justify-content: space-between;
+}
+
+.jc-sa {
+    justify-content: space-around;
+}
+
+.column {
+    flex-direction: column;
+}
+
+
+/*********** FONT ***********/
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.fs-18 {
+    font-size: 18px;
+}
+
+
+/*********** BORDER ***********/
+
+.bdr-rond {
+    border-radius: 50px;
+}
