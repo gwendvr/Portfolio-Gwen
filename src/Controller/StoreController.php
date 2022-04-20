@@ -23,14 +23,14 @@ class StoreController extends AbstractController
         $this->repoProject = $repoProject;
     }
 
-    #[Route('/', name: 'app_store')]
+    #[Route('/store', name: 'app_store')]
     public function index(): Response
     {
         $competences = $this->repoCompetence->findAll();
         $skills = $this->repoSkill->findAll();
         $formations = $this->repoFormation->findAll();
         $projects = $this->repoProject->findAll();
-        return $this->render('store/index.html.twigg', [
+        return $this->render('store/index.html.twig', [
             'competences'=> $competences,
             'skills'=> $skills,
             'formations' => $formations,
