@@ -16,41 +16,6 @@
 	            {% endfor %}
             </figure>
         </div>
-
-        <h2>
-            <strong>Le parcours Professionnel et formations<span>( 4 )</span></strong>
-        </h2>
-
-       <div class="cards">
-            <figure class="card">
-                {% for formation in formations %}
-                    <img src="{{formation.image}}" />
-		            <figcaption>{{ formation.name }}</figcaption>
-	            {% endfor %}
-            </figure>
-        </div>
-
-        <h2>
-            <strong>Les projets</strong>
-        </h2>
-
-        <div class="news">
-            <figure class="article">
-                {% for project in projects %}
-                    <img src="{{ project.image }}" />
-
-                    <figcaption>
-                        <h3>{{ project.nom }}</h3>
-                        <p>
-                            {{ project.description }}
-                        </p>
-                    </figcaption>
-	            {% endfor %}
-            </figure>
-        </div>
-
-         <h2>
-            <strong>Le tableau des compétences</strong>
-        </h2>
     </div>
+
 {% endblock %}

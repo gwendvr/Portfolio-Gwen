@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TableauController!
+{% endblock %}
+
+{% block body %}
+	{% for competence in competences %}
+		<p>{{ competence.titre }}
+			{{ competence.StartDate|date("d/m/Y") }}
+			{{ competence.EndDate|date("d/m/Y") }}
+			{{ competence.category.name }}</p>
+	{% endfor %}
+{% endblock %}

@@ -3,11 +3,12 @@
 </head>
 
 <div class="navbar">
-    <a class="brand" href=""><img src="../../assets/images/logo.PNG"></a>
+    <a class="brand" href="{{ path('app_home') }}"><img src="../../assets/images/logo.PNG"></a>
     <div class="navigation">
-        <a class="nav-item" href="">STORE</a>
-        <a class="nav-item" href="">TABLEAU</a>
-        <a class="nav-item" href="">CV</a>
+        <a class="nav-item" href="{{ path('app_store') }}">STORE</a>
+        <a class="nav-item" href="{{ path('app_tableau') }}">TABLEAU</a>
+        <a class="nav-item" href="{{ path('app_c_v') }}">CV</a>
+        <a class="nav-item" href="{{ path('app_admin') }}">ADMIN</a>
     </div>
     <div class="profile">
         <div class="center-content">
