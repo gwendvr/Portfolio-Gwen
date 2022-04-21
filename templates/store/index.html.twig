@@ -3,41 +3,20 @@
 {% block title %}Store{% endblock %}
 
 {% block body %}
- <h1 class="Home">Bienvenue dans votre bibliothèque !</h1>
     <div class="wrapper">
         <h2>
-            <strong>Les Compétences<span>( 3 )</span></strong>
+            <strong>Les projets<span>( 3 )</span></strong>
         </h2>
         <div class="cards">
             <figure class="card">
-                {% for skill in skills %}
-                    <img src="{{skill.image}}" />
-		            <figcaption>{{ skill.nom }}</figcaption>
-	            {% endfor %}
+                <img src="/images/trex.jpg" />
+		        <figcaption>
+                <h3>Jeu du Trex</h3>
+                <p>
+                    J'ai refais ce jeu mondialement connu en langage C#, afin de m'entrainer avec ce langage tout en s'ammusant !
+                </p>
+            </figcaption>
             </figure>
         </div>
-
-        <h2>
-            <strong>Le parcours Professionnel et formations<span>( 4 )</span></strong>
-        </h2>
-
-       <div class="cards">
-            <figure class="card">
-                {% for formation in formations %}
-                    <img src="{{formation.image}}" />
-		            <figcaption>{{ formation.name }}</figcaption>
-	            {% endfor %}
-            </figure>
-        </div>
-
-        <h2>
-            <strong>Les projets</strong>
-        </h2>
-
-       
-
-        <h2>
-            <strong>Le tableau des compétences</strong>
-        </h2>
     </div>
 {% endblock %}
