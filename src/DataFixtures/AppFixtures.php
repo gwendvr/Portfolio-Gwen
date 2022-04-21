@@ -38,14 +38,6 @@ class AppFixtures extends Fixture
         $manager->persist($category);
         $manager->flush();
 
-        $skill = new Competences();
-        $skill->setNom('Open Classroom');
-        $skill->setDescription('Test desciption');
-        $skill->setImage('image open classroom');
-
-        $manager->persist($skill);
-        $manager->flush();
-
         $formation = new Formation();
         $formation->setName('Les Charmilles');
         $formation->setDescription('Description sur les charmilles');
@@ -53,5 +45,13 @@ class AppFixtures extends Fixture
 
         $manager->persist($formation);
         $manager->flush();*/
+
+        $skill = new Competences();
+        $skill->setNom('Open Classroom');
+        $skill->setDescription('Test desciption');
+        $skill->setImage('/images/Oc.png');
+
+        $manager->persist($skill);
+        $manager->flush();
     }
 }
