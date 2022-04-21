@@ -20,6 +20,10 @@ em {
     font-size: 15px;
 }
 
+.upper {
+    text-transform: uppercase;
+}
+
 
 /*********** MARGIN ***********/
 
@@ -133,9 +137,24 @@ em {
     font-size: 18px;
 }
 
+.fs-13 {
+    font-size: 13px;
+}
+
 
 /*********** BORDER ***********/
 
 .bdr-rond {
     border-radius: 50px;
+}
+
+
+/*********** WIDTH ***********/
+
+.width-100 {
+    width: 100%;
+}
+
+.width-15 {
+    width: 15%;
 }
