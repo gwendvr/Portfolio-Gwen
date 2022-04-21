@@ -4,6 +4,8 @@ namespace App\DataFixtures;
 
 use App\Entity\User;
 use App\Entity\Category;
+use App\Entity\Competences;
+use App\Entity\Formation;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -28,12 +30,28 @@ class AppFixtures extends Fixture
         $user->setRoles(['ROLE_ADMIN']);
 
         $manager->persist($user);
-        $manager->flush();*/
+        $manager->flush();
 
         $category = new Category();
         $category->setName('Organiser son développement professionnel');
 
         $manager->persist($category);
         $manager->flush();
+
+        $skill = new Competences();
+        $skill->setNom('Open Classroom');
+        $skill->setDescription('Test desciption');
+        $skill->setImage('image open classroom');
+
+        $manager->persist($skill);
+        $manager->flush();
+
+        $formation = new Formation();
+        $formation->setName('Les Charmilles');
+        $formation->setDescription('Description sur les charmilles');
+        $formation->setImage('image charmilles');
+
+        $manager->persist($formation);
+        $manager->flush();*/
     }
 }

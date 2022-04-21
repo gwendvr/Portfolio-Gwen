@@ -1,20 +1,135 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Home
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<div class="mg-l" id="bts-sio">
+		<div class="txt-center select">
+			<div class="mg-side-l d-flex jc-c">
+				<i class="icon ion-arrow-right-a d-flex item-center mgr-l white flash"></i>
+				<h2 class="flash">LE BTS SERVICES INFORMATIQUES AUX ORGANISATIONS</h2>
+			</div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+			<div class="mg-side-l white">
+				<p class="fs-18">
+				    Le BTS Services Informatiques aux Organisations est un diplôme reconnu par l’état de
+					niveau Bac+2 qui se déroule pendant 2 ans en formation initial ou en alternance. Il
+					remplace depuis septembre 2011 l’ancien BTS informatique de Gestion (BTS IG).
+					Deux options sont proposées dans ce cursus à partir du second semestre de la première
+					année :</p>
+			</div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/gwend/Portfolio-Gwen/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/gwend/Portfolio-Gwen/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+			<a href="#slam">
+				<button class="btn" type="button">
+					<strong>Solutions Logicielles et Applications Métiers (SLAM)</strong></button>
+			</a>
+
+			<a href="#sisr">
+				<button class="btn" type="button">
+					<strong>Solutions d’Infrastructure Systèmes et Réseaux (SISR)</strong></button>
+			</a>
+		</div>
+	</div>
+
+	<div class="mg-l">
+		<div class="txt-center select">
+			<div class="grid-container">
+				<div class="left pd-m">
+                    <p class="fs-18 bg-blue bdr-rond">Level 13<p>
+                    <img class="width" src="https://cdn-icons-png.flaticon.com/512/81/81392.png"</img>
+                    <p class="fs-18 bg-blue bdr-rond">5 000 points<p>
+                </div>
+				<div class="right">
+                    <h3>Gwenaelle Devriendt</h3>
+                    <div class="pd-m txt-start text-mobile">
+                        <p>Bonjour !</p>
+                        <p>Je suis étudiante en BTS SIO en option SLAM !</p>
+                        <p>Avant j'étais dans une autre filière qui était le commerce, j'ai fais manager
+                        chez Satoriz.</p>
+                        <p>Mais ça ne me plaisait pas du tout ! Alors j'ai voulu réaliser mon
+                        rêve : <strong>Développer des jeux vidéo !</strong></p>
+                    </div>
+
+                    <div class="d-flex jc-sa">
+                        <div class="d-flex blue column icon-profil">
+                            <span>Diplôme</span>
+                            <i class="icon ion-trophy"></i>
+                            <span><em>2 (+ 1 en cours)</em></span>
+                        </div>
+                        <div class="d-flex blue column icon-profil">
+                            <span>Café</span>
+                            <i class="icon ion-coffee"></i>
+                            <span>∞</span>
+                        </div>
+                        <div class="d-flex blue column icon-profil">
+                            <span>Compétences</span>
+                            <i class="icon ion-ios-game-controller-a"></i>
+                            <span><em>20</em></span>
+                        </div>
+                        <div class="d-flex blue column icon-profil">
+                            <span>Projets</span>
+                            <i class="icon ion-disc"></i>
+                            <span><em>4</em></span>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>
+
+    <div class="slam-card mg-side-xl" id="slam">
+        <article class="horizontal rotate-card-right">
+            <div class="card-inner">
+                <span class="card-pin simple"></span>
+                <div class="card-image">
+                    <img src="https://isometric.online/wp-content/uploads/2019/07/app_development_SVG.svg" />
+                </div>
+                <div class="card-content">
+                    <div class="mb-xl txt-center">
+                        <span class="card-meta-artist fs-20">SLAM (Solutions Logicielles et Applications Métiers)</span>
+                    </div>
+                    <p class="card-title">L'élève du BTS SIO option SLAM acquiert les compétences de trois domaines
+                    d'activités dont deux en commun avec le BTS SIO option SISR :</p>
+                    <p class="card-title">Support et mise à disposition de services informatiques</p>
+                    <p class="card-title">Cybersécurité des services informatiques</p>
+                    <p class="card-title"><strong>Option SLAM :</strong> Conception et développement d'applications :
+                    l'élève participera à la conception, au développement, ainsi qu'au déploiement et
+                    à la maintenance des composants logiciels d'une solution applicative. Il acquiert
+                    ainsi des compétences en conception et développement d'une solution applicative,
+                    en maintenance de celle-ci, mais aussi en bases de données et en gestion des données
+                    numériques.</p>
+                </div>
+                <span class="card-pin simple"></span>
+            </div>
+        </article>
+    </div>
+
+    <div class="slam-card mg-side-xl" id="sisr">
+        <article class="horizontal rotate-card-left">
+            <div class="card-inner">
+                <span class="card-pin simple"></span>
+                <div class="card-image">
+                    <img src="https://isometric.online/wp-content/uploads/2020/04/cloud_database_svg.svg" />
+                </div>
+                <div class="card-content">
+                    <div class="mb-xl txt-center">
+                        <span class="card-meta-artist fs-20">SISR (Solutions d'Infrastructure, Systèmes et Réseaux)</span>
+                    </div>
+                    <p class="card-title">L'élève du BTS SIO option SLAM acquiert les compétences de trois domaines
+                    d'activités dont deux en commun avec le BTS SIO option SISR :</p>
+                    <p class="card-title">Support et mise à disposition de services informatiques</p>
+                    <p class="card-title">Cybersécurité des services informatiques</p>
+                    <p class="card-title"><strong>Option SISR :</strong> Administration des systèmes et des réseaux : le
+                    titulaire participera à l'administration des systèmes et du réseau, il sera capable
+                    de modifier ou d'adapter les solutions d'infrastructure ainsi que la qualité de
+                    service des équipements du réseaux. Il acquiert ainsi les compétences pour concevoir
+                    une solution d'infrastructure réseau, l'installer, la tester et la déployer. L'élève
+                    apprend aussi à administrer et superviser ce réseau.</p>
+                </div>
+                <span class="card-pin simple"></span>
+            </div>
+        </article>
+    </div>
+
 {% endblock %}
