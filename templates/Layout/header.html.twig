@@ -6,20 +6,19 @@
 	<a class="brand" href="{{ path('app_home') }}"><img src="{{asset('images/logo.PNG')}}"></a>
 	<div class="navigation">
 		<div class="dropdown">
-			<button class="dropbtn"><a class="nav-item" href="{{ path('app_store') }}">STORE</a></button>
+			<a class="nav-item" href="{{ path('app_store') }}"><button class="dropbtn">STORE</button></a>
 		</div>
 		<div class="dropdown">
-			<button class="dropbtn"><a class="nav-item" href="{{ path('app_tableau') }}">TABLEAU</a></button>
+			<a class="nav-item" href="{{ path('app_tableau') }}"><button class="dropbtn">TABLEAU</button></a>
 		</div>
         <div class="dropdown">
-			<button class="dropbtn"><a class="nav-item" href="{{ path('app_c_v') }}">CV</a></button>
+			<a class="nav-item" href="/cv-gwen.pdf" download><button class="dropbtn">CV</button></a>
 		</div>
 		<div class="dropdown">
-			<button class="dropbtn"><a class="nav-item" href="{{ path('app_admin') }}">ADMIN</a></button>
+			<a class="nav-item" href="{{ path('app_admin') }}"><button class="dropbtn">ADMIN</button></a>
 			<div class="dropdown-content">
 				<a href="#tableau">Tableau</a>
-				<a href="#competence">Compétence</a>
-				<a href="#formation">formation</a>
+				<a href="#projet">Projets</a>
 			</div>
 		</div>
 	</div>

@@ -4,8 +4,7 @@ namespace App\Controller;
 
 use App\Entity\TableauCompetence;
 use App\Form\CompetenceType;
-use App\Repository\CompetencesRepository;
-use App\Repository\FormationRepository;
+use App\Repository\ProjectRepository;
 use App\Repository\TableauCompetenceRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,12 +15,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminController extends AbstractController
 {
     public function __construct(EntityManagerInterface $em, TableauCompetenceRepository $repoCompetence,
-    CompetencesRepository $repoSkill, FormationRepository $repoFormation,)
+    ProjectRepository $repoProject)
     {
         $this->em = $em;
         $this->repoCompetence = $repoCompetence;
-        $this->repoSkill = $repoSkill;
-        $this->repoFormation = $repoFormation;
+        $this->repoProject = $repoProject;
     }
 
     /**
@@ -33,18 +31,16 @@ class AdminController extends AbstractController
     public function index(): Response
     {
         $competences = $this->repoCompetence->findAll();
-        $skills = $this->repoSkill->findAll();
-        $formations = $this->repoFormation->findAll();
+        $projects = $this->repoProject->findAll();
         return $this->render('admin/index.html.twig', [
             'controller_name' => 'AdminController',
             'competences'=> $competences,
-            'skills'=> $skills,
-            'formations' => $formations,
+            'projects' => $projects,
         ]);
     }
 
     /**
-     * Page création admin
+     * Page création tableau de compétence
      * 
      * @Route("/admin/createCompetence", name="create_competence")
      * @return Response
@@ -68,7 +64,7 @@ class AdminController extends AbstractController
     }
 
      /**
-     * Page modification admin
+     * Page modification tableau de compétence
      * 
      * @Route("/admin/editCompetence/{id}", name="edit_competence")
      * @return Response
@@ -93,7 +89,7 @@ class AdminController extends AbstractController
     }
 
      /**
-     * Page modification admin
+     * Page suppression tableau de compétence
      * 
      * @Route("/admin/deleteCompetence/{id}", name="delete_competence")
      */
