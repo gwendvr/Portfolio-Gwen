@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Entity\Category;
 use App\Entity\Competences;
 use App\Entity\Formation;
+use App\Entity\Project;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -44,7 +45,7 @@ class AppFixtures extends Fixture
         $formation->setImage('image charmilles');
 
         $manager->persist($formation);
-        $manager->flush();*/
+        $manager->flush();
 
         $skill = new Competences();
         $skill->setNom('Open Classroom');
@@ -52,6 +53,15 @@ class AppFixtures extends Fixture
         $skill->setImage('/images/Oc.png');
 
         $manager->persist($skill);
+        $manager->flush();*/
+
+        $project = new Project();
+        $project->setName('Poppy bird');
+        $project->setDescription("Pour m'entrainer en JavaScript j'ai fait un flappy bird.");
+        $project->setImage('/images/poppy.PNG');
+        $project->setLien("https://github.com/gwendvr/poppy-bird");
+
+        $manager->persist($project);
         $manager->flush();
     }
 }

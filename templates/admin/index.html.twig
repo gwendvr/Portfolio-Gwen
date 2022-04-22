@@ -5,65 +5,63 @@
 
 {% block body %}
 
-	<div
-		class="wrapper">
+	<div class="liste-course">
+		<h1 class="d-flex">La base de données</h1>
 
 		<!-- TABLEAU COMPETENCE -->
-		<h2>
-			<strong>Le tableau des compétences</strong>
-		</h2>
+		<h2 id="tableau">Le tableau des compétences</h2>
 
-		<div class="cards">
+		<ol class="continuous-list">
 			{% for competence in competences %}
-				<p>{{ competence.titre }}
-					{{ competence.StartDate|date("d/m/Y") }}
-					{{ competence.EndDate|date("d/m/Y") }}
-					{{ competence.category.name }}</p>
+				<li class="d-flex">{{ competence.titre }}</li>
+				<p class="d-flex">{{ competence.StartDate|date("d/m/Y") }}
+				{{ competence.EndDate|date("d/m/Y") }}
+				{{ competence.category.name }}</p>
 
-				<a href="{{ path('edit_competence', {'id': competence.id}) }}">Modifier</a>
-				<form method="POST" action="{{ path('delete_competence', {'id': competence.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
-					<input type="hidden" name="_method" value="DELETE">
-					<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ competence.id) }}">
-					<button>supprimer</button>
-				</form>
+				<div class="d-flex">
+					<a class="slide button-modif" href="{{ path('edit_competence', {'id': competence.id}) }}">Modifier</a>
+					<form method="POST" action="{{ path('delete_competence', {'id': competence.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+						<input type="hidden" name="_method" value="DELETE">
+						<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ competence.id) }}">
+						<button class="close button-modif">supprimer</button>
+					</form>
+				</div>
 			{% endfor %}
-
-            <a href="{{ path('create_competence') }}">Créer une nouvelle compétence</a>
-		</div>
+			<div class="d-flex">
+				<a  class="pulse button-modif" href="{{ path('create_competence') }}">Créer une nouvelle compétence</a>
+			</div>
+		</ol>
 
 		<!-- COMPETENCE -->
-		<h2>
-			<strong>Les compétences</strong>
-		</h2>
+		<h2 id="competence">Le tableau des compétences</h2>
 
-		<div class="cards">
+		<ol class="continuous-list">
 			{% for skill in skills %}
-				<p>{{ skill.nom }}
-					{{ skill.description }}
-					{{ skill.image }}</p>
+				<li class="d-flex">{{ skill.nom }}</li>
+				<p class="d-flex">{{ skill.description }}</p>
+				<p class="d-flex">{{ skill.image }}</p>
 			{% endfor %}
-		</div>
+		</ol>
 
 		<!-- FORMATIONS -->
-		<h2>
-			<strong>Les formations</strong>
-		</h2>
+		<h2 id="formation">Les formations</h2>
 
-		<div class="cards">
+		<ol class="continuous-list">
 			{% for formation in formations %}
-				<p>{{ formation.name }}
-					{{formation.description }}
-					{{ formation.image }}</p>
+				<li class="d-flex">{{ formation.name }}</li>
+				<p class="d-flex">{{formation.description }}</p>
+				<p class="d-flex">{{ formation.image }}</p>
 			{% endfor %}
-		</div>
+		</ol>
 
-		<!-- PROJETS -->
-		<h2>
-			<strong>Les projets</strong>
-		</h2>
+		<h2 id="projet">Les projets</h2>
+		<ol class="continuous-list">
+		</ol>
 
-		<div class="cards">
-			
+		<div id="scroll_to_top">
+    		<a href="#top">
+				<i class="icon ion-android-arrow-up"></i>
+			</a>
 		</div>
 	</div>
 
