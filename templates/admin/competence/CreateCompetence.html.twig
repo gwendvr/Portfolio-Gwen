@@ -4,24 +4,39 @@
     
 {% block body %}
     {{ form_start(form) }}
-    <div>
-		<h1>La compétence à entrer :</h1>
-		{{ form_widget(form.titre) }}
-	</div>
-    <div>
-		{{ form_label(form.StartDate) }}
+	<div class="form-modif">
+		<div class='control'>
+			<h1>
+				Modification compétence
+			</h1>
+		</div>
+
+		<h2>La compétence à entrer :</h2>
+		<div class='control block-cube block-input'>
+			{{ form_widget(form.titre) }}
+			<div class='bg-top'>
+				<div class='bg-inner'></div>
+			</div>
+			<div class='bg-right'>
+				<div class='bg-inner'></div>
+			</div>
+			<div class='bg'>
+				<div class='bg-inner'></div>
+			</div>
+		</div>
+
+		<h2>Date de début :</h2>
 		{{ form_widget(form.StartDate) }}
-	</div>
-    <div>
-		{{ form_label(form.EndDate) }}
+			
+		<h2>Date de fin :</h2>
 		{{ form_widget(form.EndDate) }}
-	</div>
-     <div>
-		{{ form_label(form.category) }}
+
+		<h2>Catégory :</h2>
 		{{ form_widget(form.category) }}
-	</div>
-    <div>
-		{{ form_widget(form.Enregistrer) }}
+		
+		<div class="font-mono">
+			{{ form_widget(form.Enregistrer) }}
+		</div>
 	</div>
     {{ form_end(form) }}
 {% endblock %}

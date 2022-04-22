@@ -93,6 +93,7 @@
     background: none;
     transform: translateY(100%);
     transition: 0.3s;
+    color: white;
 }
 
 .cards .card:after,
@@ -115,7 +116,7 @@
 .news .card:focus img,
 .cards .card:active img,
 .news .card:active img {
-    filter: blur(3px);
+    filter: blur(100px);
     transform: scale(0.97);
 }
 

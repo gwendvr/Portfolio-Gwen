@@ -1,17 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SecurityController!{% endblock %}
+{% block title %}Hello SecurityController!
+{% endblock %}
 
 {% block body %}
-    <form method="POST" action="{{ path('login') }}">
-       <div>
-            <label for="_username">Email :</label>
-			<input type="email" id="username" name="_username">
-       </div>
-       <div>
-            <label for="_password">Mot de passe :</label>
-			<input type="text" id="password" name="_password">
-       </div>
-       <button type="submit">se connecter</button>
-    </form>
+	<form method="POST" action="{{ path('login') }}" class='form'>
+		<div class='control'>
+			<h1>
+				Connection :
+			</h1>
+		</div>
+		<div class='control block-cube block-input'>
+            <label for="_username"></label>
+			<input type="email" id="username" name='_username' placeholder='Email'>
+			<div class='bg-top'>
+				<div class='bg-inner'></div>
+			</div>
+			<div class='bg-right'>
+				<div class='bg-inner'></div>
+			</div>
+			<div class='bg'>
+				<div class='bg-inner'></div>
+			</div>
+		</div>
+		<div class='control block-cube block-input'>
+            <label for="_password"></label>
+			<input name='_password' id="password" placeholder='Mot de passe' type='password'>
+			<div class='bg-top'>
+				<div class='bg-inner'></div>
+			</div>
+			<div class='bg-right'>
+				<div class='bg-inner'></div>
+			</div>
+			<div class='bg'>
+				<div class='bg-inner'></div>
+			</div>
+		</div>
+		<button class='btn-login block-cube block-cube-hover' type="submit">
+			<div class='bg-top'>
+				<div class='bg-inner'></div>
+			</div>
+			<div class='bg-right'>
+				<div class='bg-inner'></div>
+			</div>
+			<div class='bg'>
+				<div class='bg-inner'></div>
+			</div>
+			<div class='text'>
+				Se connecter
+			</div>
+		</button>
+	</form>
 {% endblock %}

@@ -7,16 +7,22 @@
         <h2>
             <strong>Les projets<span>( 3 )</span></strong>
         </h2>
-        <div class="cards">
-            <figure class="card">
-                <img src="/images/trex.jpg" />
-		        <figcaption>
-                <h3>Jeu du Trex</h3>
-                <p>
-                    J'ai refais ce jeu mondialement connu en langage C#, afin de m'entrainer avec ce langage tout en s'ammusant !
-                </p>
-            </figcaption>
-            </figure>
+        <div class="news">
+            {% for project in projects %}
+                <div class="cards">
+                    <a href="{{ project.lien }}" target="_blank">
+                        <figure class="card">
+                            <img src="{{ project.image }}" />
+                            <figcaption>
+                                <h3>{{ project.name }}</h3>
+                                <p>
+                                    {{ project.description }}
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
