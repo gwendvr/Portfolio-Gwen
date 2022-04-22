@@ -18,9 +18,9 @@
 .continuous-list {
     padding-left: 0.5rem;
     margin-bottom: 2.8rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
+    img {
+        width: 200px;
+    }
 }
 
 .continuous-list li {

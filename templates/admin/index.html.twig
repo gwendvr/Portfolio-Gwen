@@ -11,7 +11,7 @@
 		<!-- TABLEAU COMPETENCE -->
 		<h2 id="tableau">Le tableau des compétences</h2>
 
-		<ol class="continuous-list">
+		<ol class="continuous-list grid-3">
 			{% for competence in competences %}
 				<li class="d-flex">{{ competence.titre }}</li>
 				<p class="d-flex">{{ competence.StartDate|date("d/m/Y") }}
@@ -32,30 +32,16 @@
 			</div>
 		</ol>
 
-		<!-- COMPETENCE -->
-		<h2 id="competence">Le tableau des compétences</h2>
-
-		<ol class="continuous-list">
-			{% for skill in skills %}
-				<li class="d-flex">{{ skill.nom }}</li>
-				<p class="d-flex">{{ skill.description }}</p>
-				<p class="d-flex">{{ skill.image }}</p>
-			{% endfor %}
-		</ol>
-
-		<!-- FORMATIONS -->
-		<h2 id="formation">Les formations</h2>
-
-		<ol class="continuous-list">
-			{% for formation in formations %}
-				<li class="d-flex">{{ formation.name }}</li>
-				<p class="d-flex">{{formation.description }}</p>
-				<p class="d-flex">{{ formation.image }}</p>
-			{% endfor %}
-		</ol>
-
+		<!-- PROJETS -->
 		<h2 id="projet">Les projets</h2>
-		<ol class="continuous-list">
+		
+		<ol class="continuous-list grid-4">
+			{% for project in projects %}
+				<li class="d-flex">{{ project.name }}</li>
+				<p class="d-flex">{{ project.lien }}</p>
+				<p class="d-flex">{{ project.description }}</p>
+				<img src="{{ project.image }}" />
+			{% endfor %}
 		</ol>
 
 		<div id="scroll_to_top">
