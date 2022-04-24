@@ -33,7 +33,6 @@ class AdminController extends AbstractController
         $competences = $this->repoCompetence->findAll();
         $projects = $this->repoProject->findAll();
         return $this->render('admin/index.html.twig', [
-            'controller_name' => 'AdminController',
             'competences'=> $competences,
             'projects' => $projects,
         ]);
