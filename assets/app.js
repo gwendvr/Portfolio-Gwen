@@ -14,6 +14,7 @@ import './styles/index.scss';
 import './styles/table.scss';
 import './styles/admin.scss';
 import './styles/login.scss';
+import './styles/bullet.scss';
 
 // start the Stimulus application
 import './bootstrap';
