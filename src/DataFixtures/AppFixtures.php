@@ -5,8 +5,10 @@ namespace App\DataFixtures;
 use App\Entity\User;
 use App\Entity\Category;
 use App\Entity\Competences;
+use App\Entity\Days;
 use App\Entity\Formation;
 use App\Entity\Project;
+use App\Entity\Week;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -53,7 +55,7 @@ class AppFixtures extends Fixture
         $skill->setImage('/images/Oc.png');
 
         $manager->persist($skill);
-        $manager->flush();*/
+        $manager->flush();
 
         $project = new Project();
         $project->setName('Poppy bird');
@@ -62,6 +64,12 @@ class AppFixtures extends Fixture
         $project->setLien("https://github.com/gwendvr/poppy-bird");
 
         $manager->persist($project);
+        $manager->flush();*/
+
+        $week = new Week();
+        $week->setDay('Lundi');
+
+        $manager->persist($week);
         $manager->flush();
     }
 }
