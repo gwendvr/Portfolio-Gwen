@@ -17,12 +17,18 @@
 		<div class="dropdown">
 			<a class="nav-item" href="{{ path('app_bullet') }}"><button class="dropbtn">BULLET</button></a>
 		</div>
-		<div class="dropdown wdt">
-			<a class="nav-item" href="{{ path('app_admin') }}"><button class="dropbtn">ADMIN</button></a>
-			<div class="dropdown-content">
-				<a href="#tableau">Tableau</a>
-				<a href="#projet">Projets</a>
+		{% if is_granted('ROLE_ADMIN') %}
+            <div class="dropdown wdt">
+				<a class="nav-item" href="{{ path('app_admin') }}"><button class="dropbtn">ADMIN</button></a>
+				<div class="dropdown-content">
+					<a href="#tableau">Tableau</a>
+					<a href="#projet">Projets</a>
+				</div>
 			</div>
-		</div>
+		{% else %}
+			<div class="dropdown wdt">
+				<a class="nav-item" href="/login"><button class="dropbtn">CONNEXION</button></a>
+			</div>
+		{% endif %}
 	</div>
 </div>
