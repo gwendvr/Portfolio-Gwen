@@ -2,12 +2,15 @@
 
 namespace App\Controller;
 
+use App\Entity\Goal;
 use App\Entity\Tag;
 use App\Entity\Tasks;
 use App\Entity\WeekNumber;
+use App\Form\GoalType;
 use App\Form\NumberType;
 use App\Form\TagType;
 use App\Form\TaskType;
+use App\Repository\GoalRepository;
 use App\Repository\TagRepository;
 use App\Repository\TasksRepository;
 use App\Repository\WeekNumberRepository;
@@ -20,12 +23,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class BulletController extends AbstractController
 {
     public function __construct(EntityManagerInterface $em, TasksRepository $repoTask,
-    WeekNumberRepository $repoNumber, TagRepository $repoTag)
+    WeekNumberRepository $repoNumber, TagRepository $repoTag, GoalRepository $repoGoal)
     {
         $this->em = $em;
         $this->repoTask = $repoTask;
         $this->repoNumber = $repoNumber;
         $this->repoTag = $repoTag;
+        $this->repoGoal = $repoGoal;
     }
 
     #[Route('/bullet', name: 'app_bullet')]
@@ -34,10 +38,12 @@ class BulletController extends AbstractController
         $tasks = $this->repoTask->findAll();
         $numbers = $this->repoNumber->findAll();
         $tags = $this->repoTag->findAll();
+        $goals = $this->repoGoal->findAll();
         return $this->render('bullet/index.html.twig', [
             'tasks'=> $tasks,
             'numbers'=> $numbers,
-            'tags'=> $tags
+            'tags'=> $tags,
+            'goals'=> $goals
         ]);
     }
 
@@ -188,4 +194,37 @@ class BulletController extends AbstractController
 
         return $this->redirectToRoute('app_bullet');
     }
-}
+
+    /****************** GOALS ******************/
+    #[Route('/bullet/createGoal', name: 'create_goal')]
+    public function createGoal(Request $request) : Response
+    {
+        $goal = new Goal();
+        $form = $this->createForm(GoalType::class, $goal);
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $this->em->persist($goal);
+            $this->em->flush();
+
+            return $this->redirectToRoute('app_bullet');
+        }
+        return $this->render("bullet/goal/CreateGoal.html.twig", [
+            'form' => $form->createView()
+        ]);
+    }
+
+    #[Route('/bullet/deleteGoal/{id}', name: 'delete_goal')]
+    public function deleteGoal(int $id, Request $request, Goal $goal) : Response
+    {
+        if($this->isCsrfTokenValid('deleteGoal'. $goal->getId(), $request->get('_token')))
+        {
+            $this->em->remove($goal);
+            $this->em->flush();
+            $this->addFlash('Success', "L'objectif a été supprimé !");
+        }
+
+        return $this->redirectToRoute('app_bullet');
+    }
+}   
