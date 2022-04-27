@@ -3,12 +3,13 @@
 {% block title %}Modification Tâche{% endblock %}
     
 {% block body %}
-    {{ form_start(form) }}
-		<h1>Modification d'une tâche</h1>
-
-		<h2>Nom de la tâche :</h2>
-		{{ form_widget(form.name) }}
-        {{ form_widget(form.hour) }}
-		{{ form_widget(form.Enregistrer) }}
-    {{ form_end(form) }}
+<section class="bullet-create-edit-section">
+	<div class="bullet-create-edit-form">
+		{{ form_start(form) }}
+			{{ form_widget(form.name) }}
+			{{ form_widget(form.hour) }}
+			{{ form_widget(form.Enregistrer) }}
+		{{ form_end(form) }}
+	</div>
+</section>
 {% endblock %}
