@@ -9,6 +9,7 @@
 	<div class="h2-semaine">
 		<h2>
 			{% if numbers %}
+				Semaine N°
 				{% for number in numbers %}
 					{{ number.number }}
 					<form method="POST" action="{{ path('delete_number', {'id': number.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
@@ -18,7 +19,7 @@
 					</form>		
 				{% endfor %}
 			{% else %}
-				<a class="blue" href="{{ path('create_number') }}">Ajouter un numéro de semaine</a>
+				<a class="semaine-a-bullet" href="{{ path('create_number') }}">Ajouter un numéro de semaine</a>
 			{% endif %}
 		</h2>
 	</div>
@@ -91,7 +92,7 @@
 				<button><i class="icon ion-android-delete"></i></button>
 			</form>
 		{% endfor %}
-		<a class="blue" href="{{ path('create_task') }}">+ tâche</a>
+		<a class="blue" href="{{ path('create_task') }}">Ajouter une tâche</a>
 
 		{% for tag in tags %}
 			{{ tag.name }}
@@ -102,7 +103,7 @@
 				<button><i class="icon ion-android-delete"></i></button>
 			</form>
 		{% endfor %}
-		<a class="blue" href="{{ path('create_tag') }}">+ tag</a>
+		<a class="blue" href="{{ path('create_tag') }}">Ajouter un tag</a>
 
 		<form method="POST" action="{{ path('bullet_reset') }}" onsubmit="return confirm('La réinitialisation du bullet a été effectué')">
 			<input type="hidden" name="_method" value="DELETE">
