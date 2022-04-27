@@ -25,21 +25,17 @@
 }
 
 .bullet-week {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
     column-count: 1;
-    column-gap: 10px;
     margin: 20px;
     counter-reset: item-counter;
-    @media screen and (min-width: 400px) {
-        column-count: 2;
-    }
-    @media screen and (min-width: 600px) {
-        column-count: 3;
-    }
-    @media screen and (min-width: 800px) {
-        column-count: 4;
-    }
-    @media screen and (min-width: 1100px) {
-        column-count: 5;
+}
+
+@media(max-width: 400px) {
+    .bullet-week {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
