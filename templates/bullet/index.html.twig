@@ -107,14 +107,14 @@
 		<form method="POST" action="{{ path('bullet_reset') }}" onsubmit="return confirm('La réinitialisation du bullet a été effectué')">
 			<input type="hidden" name="_method" value="DELETE">
 			<input type="hidden" name="_token" value="{{ csrf_token('deleteBullet') }}">
-			<button>Réinitialiser le bullet</button>
+			<button class="bullet-btn-reset">Réinitialiser le bullet</button>
 		</form>
 
 		{% for goal in goals %}
 			<form method="POST" action="{{ path('delete_goal', {'id': goal.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
 				<input type="hidden" name="_method" value="DELETE">
 				<input type="hidden" name="_token" value="{{ csrf_token('deleteGoal' ~ goal.id) }}">
-				<button class="bullet-btn-reset"><i class="icon ion-android-delete"></i></button>
+				<button><i class="icon ion-android-delete"></i></button>
 			</form>
 			{{ goal.name }}
 		{% endfor %}
