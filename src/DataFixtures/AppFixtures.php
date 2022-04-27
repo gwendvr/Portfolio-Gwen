@@ -80,6 +80,7 @@ class AppFixtures extends Fixture
         $user->setEmail('gwenaelle.devriendt@gmail.com');
         $user->setRoles(['ROLE_ADMIN']);
 
+
         $manager->persist($user);
         $manager->flush();
     }
