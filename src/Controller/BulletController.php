@@ -84,7 +84,7 @@ class BulletController extends AbstractController
     #[Route('/bullet/deleteTask/{id}', name: 'delete_task')]
     public function deleteTask(int $id, Request $request, Tasks $task) : Response
     {
-        if($this->isCsrfTokenValid('delete'. $task->getId(), $request->get('_token')))
+        if($this->isCsrfTokenValid('deleteTask'. $task->getId(), $request->get('_token')))
         {
             $this->em->remove($task);
             $this->em->flush();
@@ -114,6 +114,19 @@ class BulletController extends AbstractController
         ]);
     }
 
+    #[Route('/bullet/deleteNumber/{id}', name: 'delete_number')]
+    public function deleteNumber(int $id, Request $request, WeekNumber $number) : Response
+    {
+        if($this->isCsrfTokenValid('deleteNumber'. $number->getId(), $request->get('_token')))
+        {
+            $this->em->remove($number);
+            $this->em->flush();
+            $this->addFlash('Success', 'Le numéro a été supprimé !');
+        }
+
+        return $this->redirectToRoute('app_bullet');
+    }
+
     /****************** TAG ******************/
     #[Route('/bullet/createTag', name: 'create_tag')]
     public function createTag(Request $request) : Response
@@ -137,7 +150,7 @@ class BulletController extends AbstractController
     #[Route('/bullet/deleteTag/{id}', name: 'delete_tag')]
     public function deleteTag(int $id, Request $request, Tag $tag) : Response
     {
-        if($this->isCsrfTokenValid('delete'. $tag->getId(), $request->get('_token')))
+        if($this->isCsrfTokenValid('deleteTag'. $tag->getId(), $request->get('_token')))
         {
             $this->em->remove($tag);
             $this->em->flush();

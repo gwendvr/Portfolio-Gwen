@@ -19,7 +19,12 @@
 	<div class="white">
 		{% if numbers %}
 			{% for number in numbers %}
-				{{ number.number }}			
+				{{ number.number }}
+				<form method="POST" action="{{ path('delete_number', {'id': number.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+					<input type="hidden" name="_method" value="DELETE">
+					<input type="hidden" name="_token" value="{{ csrf_token('deleteNumber' ~ number.id) }}">
+					<button><i class="icon ion-android-delete"></i></button>
+				</form>		
 			{% endfor %}
 
 			{% else %}
@@ -36,7 +41,7 @@
 			<a class="blue" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
 			<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
 				<input type="hidden" name="_method" value="DELETE">
-				<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ task.id) }}">
+				<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
 				<button><i class="icon ion-android-delete"></i></button>
 			</form>
 		{% endfor %}
@@ -47,7 +52,7 @@
 
 			<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
 				<input type="hidden" name="_method" value="DELETE">
-				<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ tag.id) }}">
+				<input type="hidden" name="_token" value="{{ csrf_token('deleteTag' ~ tag.id) }}">
 				<button><i class="icon ion-android-delete"></i></button>
 			</form>
 		{% endfor %}
