@@ -19,7 +19,7 @@
 	<div class="white">
 		{% for task in tasks %}
 			{{ task.name }}
-			{{ task.hour|date("h:m")}}
+			{{ task.hour|date("h:i")}}
 
 			<a class="blue" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
 			<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
@@ -28,5 +28,15 @@
 				<button>supprimer</button>
 			</form>
 		{% endfor %}
+
+		{% for number in numbers %}
+			{{ number.number }}
+		{% endfor %}
+
+		<form method="POST" action="{{ path('bullet_reset') }}" onsubmit="return confirm('La réinitialisation du bullet a été effectué')">
+			<input type="hidden" name="_method" value="DELETE">
+			<input type="hidden" name="_token" value="{{ csrf_token('deleteBullet') }}">
+			<button>Réinitialiser le bullet</button>
+		</form>
 	</div>
 {% endblock %}
