@@ -29,21 +29,16 @@
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
     column-count: 1;
-    margin: 20px;
+    margin: 1px 20px;
     counter-reset: item-counter;
-}
-
-@media(max-width: 400px) {
-    .bullet-week {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    padding-top: 20px;
 }
 
 .card-bullet {
     box-sizing: border-box;
     break-inside: avoid;
     counter-increment: item-counter;
-    width: 300px;
+    width: 400px;
     h1 {
         font-size: 50px;
         margin: 5px;
