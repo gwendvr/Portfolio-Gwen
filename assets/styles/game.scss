@@ -1,0 +1,21 @@
+#morpion {
+    text-align: center;
+}
+
+.morpion-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 300px;
+    margin: auto;
+    grid-gap: 5px;
+}
+
+.case {
+    border: 1px solid black;
+    height: 100px;
+    line-height: 100px;
+    font-size: 60px;
+    border-radius: 10px;
+    background-color: rgba(54, 63, 80, 0.8392156863);
+    cursor: pointer;
+}
