@@ -18,6 +18,7 @@
         "build": "encore production --progress"
     },
     "engines": {
-        "node": "14.17.6"
+        "node": "14.17.6",
+        "yarn": "1.22.17"
     }
 }
