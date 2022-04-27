@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Tasks;
+use App\Form\TaskType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,6 +21,25 @@ class BulletController extends AbstractController
     public function index(): Response
     {
         return $this->render('bullet/index.html.twig', [
+        ]);
+    }
+
+    #[Route('/bullet/createTask', name: 'bullet_create_task')]
+    public function createTask(Request $request) : Response
+    {
+        $task = new Tasks();
+        $form = $this->createForm(TaskType::class, $task);
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $this->em->persist($task);
+            $this->em->flush();
+
+            return $this->redirectToRoute('app_bullet');
+        }
+        return $this->render("bullet/CreateTask.html.twig", [
+            'form' => $form->createView()
         ]);
     }
 }
