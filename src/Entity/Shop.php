@@ -19,6 +19,10 @@ class Shop
     #[ORM\Column(type: 'integer')]
     private $prix;
 
+    #[ORM\ManyToOne(targetEntity: ShopCategory::class, inversedBy: 'Shop')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $category;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +48,18 @@ class Shop
     public function setPrix(int $prix): self
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getCategory(): ?ShopCategory
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?ShopCategory $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

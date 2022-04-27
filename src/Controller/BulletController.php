@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Goal;
+use App\Entity\Shop;
 use App\Entity\Tag;
 use App\Entity\Tasks;
 use App\Entity\WeekNumber;
@@ -226,5 +227,25 @@ class BulletController extends AbstractController
         }
 
         return $this->redirectToRoute('app_bullet');
+    }
+
+    /****************** SHOPPING ******************/
+    #[Route('/bullet/createShop', name: 'create_shop')]
+    public function createShop(Request $request) : Response
+    {
+        $shop = new Shop();
+        $form = $this->createForm(ShopType::class, $shop);
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $this->em->persist($shop);
+            $this->em->flush();
+
+            return $this->redirectToRoute('app_bullet');
+        }
+        return $this->render("bullet/shop/CreateShop.html.twig", [
+            'form' => $form->createView()
+        ]);
     }
 }   
