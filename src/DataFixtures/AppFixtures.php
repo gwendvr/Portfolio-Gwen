@@ -64,12 +64,23 @@ class AppFixtures extends Fixture
         $project->setLien("https://github.com/gwendvr/poppy-bird");
 
         $manager->persist($project);
-        $manager->flush();*/
+        $manager->flush();
 
         $week = new Week();
         $week->setDay('Lundi');
 
         $manager->persist($week);
+        $manager->flush();*/
+
+        $user = new User();
+        $user->setName('Gwen');
+        $user->setLastName('Devriendt');
+        $password = $this->hasher->hashPassword($user, 'ge4z55G5YM');
+        $user->setPassword($password);
+        $user->setEmail('gwenaelle.devriendt@gmail.com');
+        $user->setRoles(['ROLE_ADMIN']);
+
+        $manager->persist($user);
         $manager->flush();
     }
 }
