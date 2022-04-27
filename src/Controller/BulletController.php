@@ -2,18 +2,21 @@
 
 namespace App\Controller;
 
+use App\Entity\DayCategory;
 use App\Entity\Goal;
 use App\Entity\Shop;
 use App\Entity\ShopCategory;
 use App\Entity\Tag;
 use App\Entity\Tasks;
 use App\Entity\WeekNumber;
+use App\Form\DayType;
 use App\Form\GoalType;
 use App\Form\NumberType;
 use App\Form\ShopCatType;
 use App\Form\ShopType;
 use App\Form\TagType;
 use App\Form\TaskType;
+use App\Repository\DayCategoryRepository;
 use App\Repository\GoalRepository;
 use App\Repository\ShopRepository;
 use App\Repository\TagRepository;
@@ -52,7 +55,7 @@ class BulletController extends AbstractController
             'numbers'=> $numbers,
             'tags'=> $tags,
             'goals'=> $goals,
-            'shops'=> $shops
+            'shops'=> $shops,
         ]);
     }
 
@@ -288,4 +291,24 @@ class BulletController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+     /****************** TASKS ******************/
+     #[Route('/bullet/createDay', name: 'create_day')]
+     public function createDay(Request $request) : Response
+     {
+         $day = new DayCategory();
+         $form = $this->createForm(DayType::class, $day);
+         $form->handleRequest($request);
+         
+         if ($form->isSubmitted() && $form->isValid())
+         {
+             $this->em->persist($day);
+             $this->em->flush();
+ 
+             return $this->redirectToRoute('app_bullet');
+         }
+         return $this->render("bullet/CreateDay.html.twig", [
+             'form' => $form->createView()
+         ]);
+     }
 }   

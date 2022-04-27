@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création Shop{% endblock %}
+    
+{% block body %}
+<section class="bullet-create-edit-section">
+	<div class="bullet-create-edit-form">
+    {{ form_start(form) }}
+      {{ form_widget(form.day) }}
+      {{ form_widget(form.Enregistrer) }}
+    {{ form_end(form) }}
+  </div>
+</div>
+{% endblock %}
