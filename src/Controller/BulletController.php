@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Tag;
 use App\Entity\Tasks;
 use App\Entity\WeekNumber;
 use App\Form\NumberType;
+use App\Form\TagType;
 use App\Form\TaskType;
+use App\Repository\TagRepository;
 use App\Repository\TasksRepository;
 use App\Repository\WeekNumberRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -16,11 +19,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BulletController extends AbstractController
 {
-    public function __construct(EntityManagerInterface $em, TasksRepository $repoTask, WeekNumberRepository $repoNumber)
+    public function __construct(EntityManagerInterface $em, TasksRepository $repoTask,
+    WeekNumberRepository $repoNumber, TagRepository $repoTag)
     {
         $this->em = $em;
         $this->repoTask = $repoTask;
         $this->repoNumber = $repoNumber;
+        $this->repoTag = $repoTag;
     }
 
     #[Route('/bullet', name: 'app_bullet')]
@@ -28,9 +33,11 @@ class BulletController extends AbstractController
     {
         $tasks = $this->repoTask->findAll();
         $numbers = $this->repoNumber->findAll();
+        $tags = $this->repoTag->findAll();
         return $this->render('bullet/index.html.twig', [
             'tasks'=> $tasks,
-            'numbers'=> $numbers
+            'numbers'=> $numbers,
+            'tags'=> $tags
         ]);
     }
 
@@ -107,13 +114,46 @@ class BulletController extends AbstractController
         ]);
     }
 
-    /****************** RESET BUTTON ******************/
+    /****************** TAG ******************/
+    #[Route('/bullet/createTag', name: 'create_tag')]
+    public function createTag(Request $request) : Response
+    {
+        $tag = new Tag();
+        $form = $this->createForm(TagType::class, $tag);
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $this->em->persist($tag);
+            $this->em->flush();
 
+            return $this->redirectToRoute('app_bullet');
+        }
+        return $this->render("bullet/tag/CreateTag.html.twig", [
+            'form' => $form->createView()
+        ]);
+    }
+
+    #[Route('/bullet/deleteTag/{id}', name: 'delete_tag')]
+    public function deleteTag(int $id, Request $request, Tag $tag) : Response
+    {
+        if($this->isCsrfTokenValid('delete'. $tag->getId(), $request->get('_token')))
+        {
+            $this->em->remove($tag);
+            $this->em->flush();
+            $this->addFlash('Success', 'Le tag a été supprimé !');
+        }
+
+        return $this->redirectToRoute('app_bullet');
+    }
+
+    /****************** RESET BUTTON ******************/
     #[Route('/bullet/delete', name: 'bullet_reset')]
     public function resetTable(Request $request)
     {
         $taskTable = $this->repoTask->findAll();
         $weekTable = $this->repoNumber->findAll();
+        $tagTable = $this->repoTag->findAll();
 
         if($this->isCsrfTokenValid('deleteBullet', $request->get('_token')))
         {
@@ -124,6 +164,11 @@ class BulletController extends AbstractController
 
             foreach ($weekTable as $week) {
                 $this->em->remove($week);
+                $this->em->flush();
+            }
+
+            foreach ($tagTable as $tag) {
+                $this->em->remove($tag);
                 $this->em->flush();
             }
         }
