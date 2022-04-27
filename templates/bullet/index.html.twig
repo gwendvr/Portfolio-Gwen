@@ -6,6 +6,22 @@
 {% block body %}
 
 <section class="bullet-section">
+	<div class="h2-semaine">
+		<h2>
+			{% if numbers %}
+				{% for number in numbers %}
+					{{ number.number }}
+					<form method="POST" action="{{ path('delete_number', {'id': number.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+						<input type="hidden" name="_method" value="DELETE">
+						<input type="hidden" name="_token" value="{{ csrf_token('deleteNumber' ~ number.id) }}">
+						<button><i class="icon ion-android-delete"></i></button>
+					</form>		
+				{% endfor %}
+			{% else %}
+				<a class="blue" href="{{ path('create_number') }}">Ajouter un numéro de semaine</a>
+			{% endif %}
+		</h2>
+	</div>
 	<div class="bullet-week">
 			<div class="card-bullet">
 				<div class="card-bullet_content bullet-size">
@@ -64,23 +80,6 @@
 	</div>
 
 	<div class="white">
-		{% if numbers %}
-			{% for number in numbers %}
-				{{ number.number }}
-				<form method="POST" action="{{ path('delete_number', {'id': number.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
-					<input type="hidden" name="_method" value="DELETE">
-					<input type="hidden" name="_token" value="{{ csrf_token('deleteNumber' ~ number.id) }}">
-					<button><i class="icon ion-android-delete"></i></button>
-				</form>		
-			{% endfor %}
-
-			{% else %}
-				<a class="blue" href="{{ path('create_number') }}">+ numéro de semaine</a>
-		{% endif %}
-		
-		
-		
-
 		{% for task in tasks %}
 			{{ task.name }}
 			{{ task.hour|date("h:i")}}
@@ -115,11 +114,11 @@
 			<form method="POST" action="{{ path('delete_goal', {'id': goal.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
 				<input type="hidden" name="_method" value="DELETE">
 				<input type="hidden" name="_token" value="{{ csrf_token('deleteGoal' ~ goal.id) }}">
-				<button><i class="icon ion-android-delete"></i></button>
+				<button class="bullet-btn-reset"><i class="icon ion-android-delete"></i></button>
 			</form>
 			{{ goal.name }}
 		{% endfor %}
-		<a class="blue" href="{{ path('create_goal') }}">+ objectif</a>
+		<a class="blue" href="{{ path('create_goal') }}">Ajouter un objectif</a>
 
 		{% for shop in shops %}
 			<form method="POST" action="{{ path('delete_shop', {'id': shop.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
@@ -131,7 +130,7 @@
 			{{ shop.prix }}
 			{{ shop.category.name }}
 		{% endfor %}
-		<a class="blue" href="{{ path('create_shop') }}">+ article</a>
+		<a class="blue" href="{{ path('create_shop') }}">Ajouter un article</a>
 
 
 	</div>
