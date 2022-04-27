@@ -9,6 +9,7 @@ use App\Entity\Tasks;
 use App\Entity\WeekNumber;
 use App\Form\GoalType;
 use App\Form\NumberType;
+use App\Form\ShopType;
 use App\Form\TagType;
 use App\Form\TaskType;
 use App\Repository\GoalRepository;

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création Shop{% endblock %}
+    
+{% block body %}
+    {{ form_start(form) }}
+		<h2>Entrez le numéro de la semaine :</h2>
+		{{ form_widget(form.name) }}
+        {{ form_widget(form.prix) }}
+        {{ form_widget(form.category) }}
+
+		{{ form_widget(form.Enregistrer) }}
+    {{ form_end(form) }}
+{% endblock %}
