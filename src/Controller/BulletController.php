@@ -88,7 +88,7 @@ class BulletController extends AbstractController
     }
 
     /****************** WEEK NUMBER ******************/
-    #[Route('/bullet/createNumber', name: 'create_Number')]
+    #[Route('/bullet/createNumber', name: 'create_number')]
     public function createNumber(Request $request) : Response
     {
         $number = new WeekNumber();
@@ -127,7 +127,7 @@ class BulletController extends AbstractController
                 $this->em->flush();
             }
         }
-        
+
         return $this->redirectToRoute('app_bullet');
     }
 }

@@ -17,6 +17,11 @@
 	</div>
 
 	<div class="white">
+		{% for number in numbers %}
+			{{ number.number }}
+		{% endfor %}
+		<a class="blue" href="{{ path('create_number') }}">ajouter le numéro</a>
+
 		{% for task in tasks %}
 			{{ task.name }}
 			{{ task.hour|date("h:i")}}
@@ -28,10 +33,7 @@
 				<button>supprimer</button>
 			</form>
 		{% endfor %}
-
-		{% for number in numbers %}
-			{{ number.number }}
-		{% endfor %}
+		<a class="blue" href="{{ path('create_task') }}">Ajouter une tâche</a>
 
 		<form method="POST" action="{{ path('bullet_reset') }}" onsubmit="return confirm('La réinitialisation du bullet a été effectué')">
 			<input type="hidden" name="_method" value="DELETE">
