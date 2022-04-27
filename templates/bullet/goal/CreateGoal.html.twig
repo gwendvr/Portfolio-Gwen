@@ -3,10 +3,12 @@
 {% block title %}Création Tâche{% endblock %}
     
 {% block body %}
-    {{ form_start(form) }}
-		<h2>Entrez le numéro de la semaine :</h2>
-		{{ form_widget(form.name) }}
-
-		{{ form_widget(form.Enregistrer) }}
-    {{ form_end(form) }}
+<section class="bullet-create-edit-section">
+	<div class="bullet-create-edit-form">
+		{{ form_start(form) }}
+			{{ form_widget(form.name) }}
+			{{ form_widget(form.Enregistrer) }}
+		{{ form_end(form) }}
+	</div>
+</section>
 {% endblock %}

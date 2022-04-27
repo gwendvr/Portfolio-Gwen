@@ -3,10 +3,12 @@
 {% block title %}Création Shop{% endblock %}
     
 {% block body %}
+<section class="bullet-create-edit-section">
+	<div class="bullet-create-edit-form">
     {{ form_start(form) }}
-		<h2>Entrez le nom de la catégory :</h2>
-        {{ form_widget(form.name) }}
-
-		{{ form_widget(form.Enregistrer) }}
+      {{ form_widget(form.name) }}
+      {{ form_widget(form.Enregistrer) }}
     {{ form_end(form) }}
+  </div>
+</div>
 {% endblock %}

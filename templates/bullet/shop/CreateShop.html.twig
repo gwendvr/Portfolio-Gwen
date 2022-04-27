@@ -3,17 +3,21 @@
 {% block title %}Création Shop{% endblock %}
     
 {% block body %}
+<section class="bullet-create-edit-section">
+	<div class="bullet-create-edit-form">
     {{ form_start(form) }}
-		<h2>Entrez le nom de l'article :</h2>
-		{{ form_widget(form.name) }}
+      <h2>Entrez le nom de l'article :</h2>
+      {{ form_widget(form.name) }}
 
-        <h2>Entrez le prix :</h2>
-        {{ form_widget(form.prix) }}
+          <h2>Entrez le prix :</h2>
+          {{ form_widget(form.prix) }}
 
-        <h2>Choisissez la catégory :</h2>
-        <a class="blue" href="{{ path('create_shopCat') }}">+ Catégory</a>
-        {{ form_widget(form.category) }}
+          <h2>Choisissez la catégory :</h2>
+          <a class="blue" href="{{ path('create_shopCat') }}">+ Catégory</a>
+          {{ form_widget(form.category) }}
 
-		{{ form_widget(form.Enregistrer) }}
+      {{ form_widget(form.Enregistrer) }}
     {{ form_end(form) }}
+  </div>
+</section>
 {% endblock %}
