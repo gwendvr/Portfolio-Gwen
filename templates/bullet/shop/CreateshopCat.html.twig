@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création Shop{% endblock %}
+    
+{% block body %}
+    {{ form_start(form) }}
+		<h2>Entrez le nom de la catégory :</h2>
+        {{ form_widget(form.name) }}
+
+		{{ form_widget(form.Enregistrer) }}
+    {{ form_end(form) }}
+{% endblock %}

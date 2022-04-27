@@ -4,11 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Goal;
 use App\Entity\Shop;
+use App\Entity\ShopCategory;
 use App\Entity\Tag;
 use App\Entity\Tasks;
 use App\Entity\WeekNumber;
 use App\Form\GoalType;
 use App\Form\NumberType;
+use App\Form\ShopCatType;
 use App\Form\ShopType;
 use App\Form\TagType;
 use App\Form\TaskType;
@@ -246,6 +248,25 @@ class BulletController extends AbstractController
             return $this->redirectToRoute('app_bullet');
         }
         return $this->render("bullet/shop/CreateShop.html.twig", [
+            'form' => $form->createView()
+        ]);
+    }
+
+    #[Route('/bullet/createshopCat', name: 'create_shopCat')]
+    public function createShopCat(Request $request) : Response
+    {
+        $shopCat = new ShopCategory();
+        $form = $this->createForm(ShopCatType::class, $shopCat);
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $this->em->persist($shopCat);
+            $this->em->flush();
+
+            return $this->redirectToRoute('create_shop');
+        }
+        return $this->render("bullet/shop/CreateshopCat.html.twig", [
             'form' => $form->createView()
         ]);
     }

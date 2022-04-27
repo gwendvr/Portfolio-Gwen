@@ -4,9 +4,13 @@
     
 {% block body %}
     {{ form_start(form) }}
-		<h2>Entrez le numéro de la semaine :</h2>
+		<h2>Entrez le nom de l'article :</h2>
 		{{ form_widget(form.name) }}
+
+        <h2>Entrez le prix :</h2>
         {{ form_widget(form.prix) }}
+
+        <h2>Choisissez la catégory :</h2>
         {{ form_widget(form.category) }}
 
 		{{ form_widget(form.Enregistrer) }}
