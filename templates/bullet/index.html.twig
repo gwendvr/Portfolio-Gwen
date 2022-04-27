@@ -15,4 +15,18 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="white">
+		{% for task in tasks %}
+			{{ task.name }}
+			{{ task.hour|date("h:m")}}
+
+			<a class="blue" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
+			<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+				<input type="hidden" name="_method" value="DELETE">
+				<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ task.id) }}">
+				<button>supprimer</button>
+			</form>
+		{% endfor %}
+	</div>
 {% endblock %}
