@@ -74,6 +74,20 @@
 			{{ goal.name }}
 		{% endfor %}
 		<a class="blue" href="{{ path('create_goal') }}">+ objectif</a>
+
+		{% for shop in shops %}
+			<form method="POST" action="{{ path('delete_shop', {'id': shop.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+				<input type="hidden" name="_method" value="DELETE">
+				<input type="hidden" name="_token" value="{{ csrf_token('deleteShop' ~ shop.id) }}">
+				<button><i class="icon ion-android-delete"></i></button>
+			</form>
+			{{ shop.name }}
+			{{ shop.prix }}
+			{{ shop.category.name }}
+		{% endfor %}
+		<a class="blue" href="{{ path('create_shop') }}">+ article</a>
+
+
 	</div>
 </section>
 {% endblock %}
