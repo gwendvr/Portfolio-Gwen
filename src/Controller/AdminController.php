@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\TableauCompetence;
+use App\Form\CatType;
 use App\Form\CompetenceType;
 use App\Repository\ProjectRepository;
 use App\Repository\TableauCompetenceRepository;
@@ -102,5 +104,28 @@ class AdminController extends AbstractController
         }
 
         return $this->redirectToRoute('app_admin');
+    }
+
+    /**
+     * Page création catégorie
+     * 
+     * @Route("/admin/createCat", name="create_cat")
+     */
+    public function createCat(Request $request) : Response
+    {
+        $Cat = new Category();
+        $form = $this->createForm(CatType::class, $Cat);
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $this->em->persist($Cat);
+            $this->em->flush();
+
+            return $this->redirectToRoute('create_competence');
+        }
+        return $this->render("admin/category/CreateCat.html.twig", [
+            'form' => $form->createView()
+        ]);
     }
 }
