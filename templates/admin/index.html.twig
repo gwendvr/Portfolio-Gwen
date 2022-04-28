@@ -1,17 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!
-{% endblock %}
+{% block title %}Page admin{% endblock %}
 
 {% block body %}
 
-	<div class="liste-course">
+	<section id="admin">
 		<h1 class="d-flex">La base de données</h1>
 
 		<!-- TABLEAU COMPETENCE -->
 		<h2 id="tableau">Le tableau des compétences</h2>
 
-		<ol class="continuous-list grid-3">
+		<ol class="admin-list grid-3">
 			{% for competence in competences %}
 				<li class="d-flex">{{ competence.titre }}</li>
 				<p class="d-flex">{{ competence.StartDate|date("d/m/Y") }}
@@ -35,7 +34,7 @@
 		<!-- PROJETS -->
 		<h2 id="projet">Les projets</h2>
 		
-		<ol class="continuous-list grid-4">
+		<ol class="admin-list grid-4">
 			{% for project in projects %}
 				<li class="d-flex">{{ project.name }}</li>
 				<p class="d-flex">{{ project.lien }}</p>
@@ -44,11 +43,11 @@
 			{% endfor %}
 		</ol>
 
-		<div id="scroll_to_top">
+		<div class="scroll-top">
     		<a href="#top">
 				<i class="icon ion-android-arrow-up"></i>
 			</a>
 		</div>
-	</div>
+	</section>
 
 {% endblock %}

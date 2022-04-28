@@ -3,40 +3,34 @@
 {% block title %}Création Compétence{% endblock %}
     
 {% block body %}
-    {{ form_start(form) }}
-	<div class="form-modif">
-		<div class='control'>
-			<h1>
-				Modification compétence
-			</h1>
-		</div>
-
-		<h2>La compétence à entrer :</h2>
-		<div class='control block-cube block-input'>
-			{{ form_widget(form.titre) }}
-			<div class='bg-top'>
-				<div class='bg-inner'></div>
-			</div>
-			<div class='bg-right'>
-				<div class='bg-inner'></div>
-			</div>
-			<div class='bg'>
-				<div class='bg-inner'></div>
-			</div>
-		</div>
-
-		<h2>Date de début :</h2>
-		{{ form_widget(form.StartDate) }}
-			
-		<h2>Date de fin :</h2>
-		{{ form_widget(form.EndDate) }}
-
-		<h2>Catégory :</h2>
-		{{ form_widget(form.category) }}
+	<section id="form">
+		{{ form_start(form) }}
 		
-		<div class="font-mono">
-			{{ form_widget(form.Enregistrer) }}
+		<div class="form-modif">
+			<div class='title'>
+				<h1>
+					Modification compétence
+				</h1>
+			</div>
+
+			<div class='input'>
+				<h2>La compétence à entrer :</h2>
+				{{ form_widget(form.titre) }}
+			</div>
+
+			<h2>Date de début :</h2>
+			{{ form_widget(form.StartDate) }}
+
+			<h2>Date de fin :</h2>
+			{{ form_widget(form.EndDate) }}
+			<a class="blue" href="{{ path('create_cat') }}">+ Catégory</a>
+			<h2>Catégory :</h2>
+			{{ form_widget(form.category) }}
+
+			<div class="font-mono">
+				{{ form_widget(form.Enregistrer) }}
+			</div>
 		</div>
-	</div>
-    {{ form_end(form) }}
+		{{ form_end(form) }}
+	</section>
 {% endblock %}
