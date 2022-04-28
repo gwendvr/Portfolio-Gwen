@@ -30,21 +30,7 @@
 				<div class="card-bullet_content bullet-size">
 					<h1 class="txt-center">Lundi</h1>
 					<p class="fs-20">
-						{% for task in tasks %}
-							{% if task.day.day == "Lundi" %}
-								{{ task.name }}
-								{{ task.hour|date("h:i")}}
-
-								<a class="blue" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
-								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
-									<input type="hidden" name="_method" value="DELETE">
-									<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
-									<button>
-										<i class="icon ion-android-delete"></i>
-									</button>
-								</form>
-							{% endif %}
-						{% endfor %}
+						
 						<a class="blue" href="{{ path('create_task') }}">Ajouter une tâche</a>
 					</p>
 					<div class="d-flex jc-sa fs-13 fw-9">
