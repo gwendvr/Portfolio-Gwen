@@ -18,7 +18,6 @@ use App\Form\ShopType;
 use App\Form\TagType;
 use App\Form\TasksType;
 use App\Form\TaskType;
-use App\Repository\DayCategoryRepository;
 use App\Repository\GoalRepository;
 use App\Repository\ShopRepository;
 use App\Repository\TagRepository;
@@ -35,20 +34,18 @@ class BulletController extends AbstractController
 {
     public function __construct(EntityManagerInterface $em,
     WeekNumberRepository $repoNumber, TagRepository $repoTag, GoalRepository $repoGoal,
-    ShopRepository $repoShop, TaskRepository $repoTask)
+    ShopRepository $repoShop)
     {
         $this->em = $em;
         $this->repoNumber = $repoNumber;
         $this->repoTag = $repoTag;
         $this->repoGoal = $repoGoal;
         $this->repoShop = $repoShop;
-        $this->repoTask = $repoTask;
     }
 
     #[Route('/bullet', name: 'app_bullet')]
     public function index(): Response
     {
-        $tasks = $this->repoTask->findAll();
         $numbers = $this->repoNumber->findAll();
         $tags = $this->repoTag->findAll();
         $goals = $this->repoGoal->findAll();
@@ -58,7 +55,6 @@ class BulletController extends AbstractController
             'tags'=> $tags,
             'goals'=> $goals,
             'shops'=> $shops,
-            'tasks'=> $tasks,
         ]);
     }
 
