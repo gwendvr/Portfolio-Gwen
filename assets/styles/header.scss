@@ -8,13 +8,13 @@
     background: #171A23;
 }
 
-.navbar .brand {
+.navbar .logo {
     float: left;
     height: 70px;
     position: relative;
 }
 
-.navbar .brand img {
+.navbar .logo img {
     width: 130px;
     position: absolute;
     top: 0;
@@ -22,20 +22,20 @@
     margin: auto;
 }
 
-.navbar .navigation {
+.navbar .navbar-items {
     float: left;
     line-height: 70px;
     margin-left: 170px;
 }
 
-.navbar .navigation .nav-item {
+.navbar .navbar-items .nav-item {
     color: lightgray;
     font-family: 'Roboto';
     font-weight: 600;
     text-decoration: none;
 }
 
-.navbar .navigation .nav-item:hover {
+.navbar .navbar-items .nav-item:hover {
     color: #3f77d1;
 }
 
