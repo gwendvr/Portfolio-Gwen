@@ -5,6 +5,9 @@
     justify-content: center;
     min-height: 500px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 1px;
 }
 
 @keyframes gradient {
