@@ -7,6 +7,7 @@ use App\Entity\Goal;
 use App\Entity\Shop;
 use App\Entity\ShopCategory;
 use App\Entity\Tag;
+use App\Entity\Task;
 use App\Entity\Tasks;
 use App\Entity\WeekNumber;
 use App\Form\DayType;
@@ -15,11 +16,13 @@ use App\Form\NumberType;
 use App\Form\ShopCatType;
 use App\Form\ShopType;
 use App\Form\TagType;
+use App\Form\TasksType;
 use App\Form\TaskType;
 use App\Repository\DayCategoryRepository;
 use App\Repository\GoalRepository;
 use App\Repository\ShopRepository;
 use App\Repository\TagRepository;
+use App\Repository\TaskRepository;
 use App\Repository\TasksRepository;
 use App\Repository\WeekNumberRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -30,16 +33,16 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BulletController extends AbstractController
 {
-    public function __construct(EntityManagerInterface $em, TasksRepository $repoTask,
+    public function __construct(EntityManagerInterface $em,
     WeekNumberRepository $repoNumber, TagRepository $repoTag, GoalRepository $repoGoal,
-    ShopRepository $repoShop)
+    ShopRepository $repoShop, TaskRepository $repoTask)
     {
         $this->em = $em;
-        $this->repoTask = $repoTask;
         $this->repoNumber = $repoNumber;
         $this->repoTag = $repoTag;
         $this->repoGoal = $repoGoal;
         $this->repoShop = $repoShop;
+        $this->repoTask = $repoTask;
     }
 
     #[Route('/bullet', name: 'app_bullet')]
@@ -51,11 +54,11 @@ class BulletController extends AbstractController
         $goals = $this->repoGoal->findAll();
         $shops = $this->repoShop->findAll();
         return $this->render('bullet/index.html.twig', [
-            'tasks'=> $tasks,
             'numbers'=> $numbers,
             'tags'=> $tags,
             'goals'=> $goals,
             'shops'=> $shops,
+            'tasks'=> $tasks,
         ]);
     }
 
@@ -63,8 +66,8 @@ class BulletController extends AbstractController
     #[Route('/bullet/createTask', name: 'create_task')]
     public function createTask(Request $request) : Response
     {
-        $task = new Tasks();
-        $form = $this->createForm(TaskType::class, $task);
+        $task = new Task();
+        $form = $this->createForm(TasksType::class, $task);
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid())
@@ -100,7 +103,7 @@ class BulletController extends AbstractController
     }
 
     #[Route('/bullet/deleteTask/{id}', name: 'delete_task')]
-    public function deleteTask(int $id, Request $request, Tasks $task) : Response
+    public function deleteTask(int $id, Request $request, Task $task) : Response
     {
         if($this->isCsrfTokenValid('deleteTask'. $task->getId(), $request->get('_token')))
         {

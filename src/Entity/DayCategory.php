@@ -21,9 +21,13 @@ class DayCategory
     #[ORM\OneToMany(mappedBy: 'day', targetEntity: Tasks::class)]
     private $task;
 
+    #[ORM\OneToMany(mappedBy: 'day', targetEntity: Task::class)]
+    private $dayTask;
+
     public function __construct()
     {
         $this->task = new ArrayCollection();
+        $this->dayTask = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -67,6 +71,36 @@ class DayCategory
             // set the owning side to null (unless already changed)
             if ($task->getDay() === $this) {
                 $task->setDay(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Task>
+     */
+    public function getDayTask(): Collection
+    {
+        return $this->dayTask;
+    }
+
+    public function addDayTask(Task $dayTask): self
+    {
+        if (!$this->dayTask->contains($dayTask)) {
+            $this->dayTask[] = $dayTask;
+            $dayTask->setDay($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDayTask(Task $dayTask): self
+    {
+        if ($this->dayTask->removeElement($dayTask)) {
+            // set the owning side to null (unless already changed)
+            if ($dayTask->getDay() === $this) {
+                $dayTask->setDay(null);
             }
         }
 
