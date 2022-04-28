@@ -3,10 +3,19 @@
 {% block title %}Création Shop{% endblock %}
     
 {% block body %}
-    {{ form_start(form) }}
-		<h2>Entrez le nom de l'article :</h2>
-		{{ form_widget(form.name) }}
-        
-		{{ form_widget(form.Enregistrer) }}
-    {{ form_end(form) }}
+	<section id="form">
+		{{ form_start(form) }}
+		
+		<div class="form-modif">
+			<div class='title'>
+				<h1>
+					Modification catégorie
+				</h1>
+			</div>
+
+			<div class='input'>
+				<h2>Entrez le nom de l'article :</h2>
+				{{ form_widget(form.name) }}
+			</div>
+	</section>
 {% endblock %}

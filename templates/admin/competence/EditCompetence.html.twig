@@ -23,13 +23,13 @@
 
 			<h2>Date de fin :</h2>
 			{{ form_widget(form.EndDate) }}
-			<a class="blue" href="{{ path('create_cat') }}">+ Catégory</a>
+
 			<h2>Catégory :</h2>
+			<a class="cat black fw-9" href="{{ path('create_cat') }}">+ Catégory</a>
 			{{ form_widget(form.category) }}
 
-			<div class="font-mono">
-				{{ form_widget(form.Enregistrer) }}
-			</div>
+
+			{{ form_widget(form.Enregistrer) }}
 		</div>
 		{{ form_end(form) }}
 	</section>
