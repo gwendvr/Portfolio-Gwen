@@ -19,6 +19,10 @@ class Tasks
     #[ORM\Column(type: 'time')]
     private $hour;
 
+    #[ORM\ManyToOne(targetEntity: DayCategory::class, inversedBy: 'task')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $day;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +48,18 @@ class Tasks
     public function setHour(\DateTimeInterface $hour): self
     {
         $this->hour = $hour;
+
+        return $this;
+    }
+
+    public function getDay(): ?DayCategory
+    {
+        return $this->day;
+    }
+
+    public function setDay(?DayCategory $day): self
+    {
+        $this->day = $day;
 
         return $this;
     }
