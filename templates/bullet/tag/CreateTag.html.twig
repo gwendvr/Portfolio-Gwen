@@ -6,7 +6,7 @@
 <section class="bullet-create-edit-section">
 	<div class="bullet-create-edit-form">
 		{{ form_start(form) }}
-			{{ form_widget(form.name) }}
+			{{ form_widget(form.name, {'attr': {'placeholder': 'Votre tag'}}) }}
 			{{ form_widget(form.day) }}
 			{{ form_widget(form.Enregistrer) }}
 		{{ form_end(form) }}

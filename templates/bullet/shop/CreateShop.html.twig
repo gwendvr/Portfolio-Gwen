@@ -7,10 +7,10 @@
 	<div class="bullet-create-edit-form">
     {{ form_start(form) }}
       <h2>Entrez le nom de l'article :</h2>
-      {{ form_widget(form.name) }}
+      {{ form_widget(form.name, {'attr': {'placeholder': "nom de l'article"}}) }}
 
           <h2>Entrez le prix :</h2>
-          {{ form_widget(form.prix) }}
+          {{ form_widget(form.prix, {'attr': {'placeholder': 'prix'}}) }}
 
           <h2>Choisissez la catégory :</h2>
           <a class="blue" href="{{ path('create_shopCat') }}">+ Catégory</a>
