@@ -247,7 +247,6 @@
 								<span class="tag">
 									{{ tag.name }}
 								</span>
-
 								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTag' ~ tag.id) }}">
@@ -264,8 +263,14 @@
 
 		<a class="black" href="{{ path('create_task') }}">Ajouter une tâche</a>
 		<a class="black" href="{{ path('create_tag') }}">Ajouter un tag</a>
+		<form method="POST" action="{{ path('bullet_reset') }}" onsubmit="return confirm('La réinitialisation du bullet a été effectué')">
+			<input type="hidden" name="_method" value="DELETE">
+			<input type="hidden" name="_token" value="{{ csrf_token('deleteBullet') }}">
+			<button class="bullet-btn-reset">Réinitialiser le bullet</button>
+		</form>
 
 		<section class="bullet-goal">
+			<h2>Objectifs de la semaine :</h2>
 			{% for goal in goals %}
 				<form method="POST" action="{{ path('delete_goal', {'id': goal.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
 					<input type="hidden" name="_method" value="DELETE">
@@ -279,7 +284,8 @@
 			<a class="black" href="{{ path('create_goal') }}">Ajouter un objectif</a>
 		</section>
 
-		<div class="white">
+		<section class="bullet-list">
+			<h2>Liste de course :</h2>
 			{% for shop in shops %}
 				<form method="POST" action="{{ path('delete_shop', {'id': shop.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
 					<input type="hidden" name="_method" value="DELETE">
@@ -293,12 +299,7 @@
 				{{ shop.category.name }}
 			{% endfor %}
 			<a class="black" href="{{ path('create_shop') }}">Ajouter un article</a>
-		</div>
+		</section>
 
-		<form method="POST" action="{{ path('bullet_reset') }}" onsubmit="return confirm('La réinitialisation du bullet a été effectué')">
-			<input type="hidden" name="_method" value="DELETE">
-			<input type="hidden" name="_token" value="{{ csrf_token('deleteBullet') }}">
-			<button class="bullet-btn-reset">Réinitialiser le bullet</button>
-		</form>
 	</section>
 {% endblock %}
