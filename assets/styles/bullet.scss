@@ -190,7 +190,7 @@
     box-shadow: 0 12px 24px rgba(128, 128, 128, 0.1);
 }
 
-.bullet-btn-reset {
+.bullet-btn {
     animation: apparition 3s;
     border-radius: 50px;
     box-shadow: 0 0.375em 1em;
@@ -202,7 +202,7 @@
     float: right;
 }
 
-.bullet-btn-reset:hover {
+.bullet-btn:hover {
     cursor: pointer;
     transition: all .4s ease-in-out;
     transform: scale(1.2);
@@ -280,4 +280,18 @@
 .bullet-list {
     border: solid 2px;
     border-radius: 20px;
+}
+
+.form-bullet-goal {
+    display: flex;
+}
+
+.form-bullet-list {
+    display: flex;
+}
+
+.h2-semaine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
