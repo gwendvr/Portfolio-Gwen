@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création Projet{% endblock %}
+
+{% block body %}
+	<section id="form">
+		{{ form_start(form) }}
+		
+		<div class="form-modif">
+			<div class='title'>
+				<h1>
+					Création projet
+				</h1>
+			</div>
+
+			<div class='input'>
+				<h2>Nom du projet :</h2>
+				{{ form_widget(form.name) }}
+			</div>
+
+			<h2>Description :</h2>
+			{{ form_widget(form.description) }}
+
+			<div class='input'>
+				{{ form_widget(form.image, {'attr': {'placeholder': "lien de l'image"}}) }}
+			</div>
+
+			<div class='input'>
+				{{ form_widget(form.lien, {'attr': {'placeholder': 'lien du projet'}}) }}
+			</div>
+
+			{{ form_widget(form.Enregistrer) }}
+		</div>
+		{{ form_end(form) }}
+	</section>
+{% endblock %}
