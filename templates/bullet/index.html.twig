@@ -46,9 +46,11 @@
 						{% endfor %}
 					</div>
 					<div class="d-flex jc-sa fs-13 fw-9">
-						<span class="tag">
-							{% for tag in tags %}
-								{{ tag.name }}
+						{% for tag in tags %}
+							{% if tag.day.day == "Lundi" %}
+								<span class="tag">
+									{{ tag.name }}
+								</span>
 
 								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
 									<input type="hidden" name="_method" value="DELETE">
@@ -57,9 +59,8 @@
 										<i class="icon ion-android-delete"></i>
 									</button>
 								</form>
-							{% endfor %}
-							<a class="black" href="{{ path('create_tag') }}">Ajouter un tag</a>
-						</span>
+							{% endif %}
+						{% endfor %}
 					</div>
 				</div>
 			</div>
@@ -84,9 +85,11 @@
 						{% endfor %}
 					</div>
 					<div class="d-flex jc-sa fs-13 fw-9">
-						<span class="tag">
-							{% for tag in tags %}
+						{% for tag in tags %}
+							{% if tag.day.day == "Mardi" %}
+								<span class="tag">
 								{{ tag.name }}
+								</span>
 
 								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
 									<input type="hidden" name="_method" value="DELETE">
@@ -95,9 +98,8 @@
 										<i class="icon ion-android-delete"></i>
 									</button>
 								</form>
-							{% endfor %}
-							<a class="black" href="{{ path('create_tag') }}">Ajouter un tag</a>
-						</span>
+							{% endif %}
+						{% endfor %}
 					</div>
 				</div>
 			</div>
@@ -122,9 +124,11 @@
 						{% endfor %}
 					</div>
 					<div class="d-flex jc-sa fs-13 fw-9">
-						<span class="tag">
-							{% for tag in tags %}
-								{{ tag.name }}
+						{% for tag in tags %}
+							{% if tag.day.day == "Mercredi" %}
+								<span class="tag">
+									{{ tag.name }}
+								</span>
 
 								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
 									<input type="hidden" name="_method" value="DELETE">
@@ -133,9 +137,8 @@
 										<i class="icon ion-android-delete"></i>
 									</button>
 								</form>
-							{% endfor %}
-							<a class="black" href="{{ path('create_tag') }}">Ajouter un tag</a>
-						</span>
+							{% endif %}
+						{% endfor %}
 					</div>
 				</div>
 			</div>
@@ -160,9 +163,11 @@
 						{% endfor %}
 					</div>
 					<div class="d-flex jc-sa fs-13 fw-9">
-						<span class="tag">
-							{% for tag in tags %}
-								{{ tag.name }}
+						{% for tag in tags %}
+							{% if tag.day.day == "Jeudi" %}
+								<span class="tag">
+									{{ tag.name }}
+								</span>
 
 								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
 									<input type="hidden" name="_method" value="DELETE">
@@ -171,9 +176,8 @@
 										<i class="icon ion-android-delete"></i>
 									</button>
 								</form>
-							{% endfor %}
-							<a class="black" href="{{ path('create_tag') }}">Ajouter un tag</a>
-						</span>
+							{% endif %}	
+						{% endfor %}
 					</div>
 				</div>
 			</div>
@@ -198,9 +202,11 @@
 						{% endfor %}
 					</div>
 					<div class="d-flex jc-sa fs-13 fw-9">
-						<span class="tag">
-							{% for tag in tags %}
-								{{ tag.name }}
+						{% for tag in tags %}
+							{% if tag.day.day == "Vendredi" %}
+								<span class="tag">
+									{{ tag.name }}
+								</span>
 
 								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
 									<input type="hidden" name="_method" value="DELETE">
@@ -209,9 +215,8 @@
 										<i class="icon ion-android-delete"></i>
 									</button>
 								</form>
-							{% endfor %}
-							<a class="black" href="{{ path('create_tag') }}">Ajouter un tag</a>
-						</span>
+							{% endif %}
+						{% endfor %}
 					</div>
 				</div>
 			</div>
@@ -236,9 +241,11 @@
 						{% endfor %}
 					</div>
 					<div class="d-flex jc-sa fs-13 fw-9">
-						<span class="tag">
-							{% for tag in tags %}
-								{{ tag.name }}
+						{% for tag in tags %}
+							{% if tag.day.day == "Week-end" %}
+								<span class="tag">
+									{{ tag.name }}
+								</span>
 
 								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
 									<input type="hidden" name="_method" value="DELETE">
@@ -247,15 +254,15 @@
 										<i class="icon ion-android-delete"></i>
 									</button>
 								</form>
-							{% endfor %}
-							<a class="black" href="{{ path('create_tag') }}">Ajouter un tag</a>
-						</span>
+							{% endif %}
+						{% endfor %}
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<a class="black" href="{{ path('create_task') }}">Ajouter une tâche</a>
+		<a class="black" href="{{ path('create_tag') }}">Ajouter un tag</a>
 
 		<div class="white">
 			{% for goal in goals %}
