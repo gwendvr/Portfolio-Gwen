@@ -261,8 +261,8 @@
 			</div>
 		</div>
 
-		<a class="black" href="{{ path('create_task') }}">Ajouter une tâche</a>
-		<a class="black" href="{{ path('create_tag') }}">Ajouter un tag</a>
+		<button class="bullet-btn-reset"><a class="black" href="{{ path('create_task') }}">Ajouter une tâche</a></btn>
+		<button class="bullet-btn-reset"><a class="black" href="{{ path('create_tag') }}">Ajouter un tag</a></btn>
 		<form method="POST" action="{{ path('bullet_reset') }}" onsubmit="return confirm('La réinitialisation du bullet a été effectué')">
 			<input type="hidden" name="_method" value="DELETE">
 			<input type="hidden" name="_token" value="{{ csrf_token('deleteBullet') }}">
@@ -281,7 +281,9 @@
 				</form>
 				{{ goal.name }}
 			{% endfor %}
-			<a class="black" href="{{ path('create_goal') }}">Ajouter un objectif</a>
+			<div class="bullet-goal-btn">
+				<button class="bullet-btn-reset"><a class="black" href="{{ path('create_goal') }}">Ajouter un objectif</a></btn>
+			</div>
 		</section>
 
 		<section class="bullet-list">
@@ -298,7 +300,9 @@
 				{{ shop.prix }}
 				{{ shop.category.name }}
 			{% endfor %}
-			<a class="black" href="{{ path('create_shop') }}">Ajouter un article</a>
+			<div class="bullet-goal-list">
+				<button class="bullet-btn-reset"><a class="black" href="{{ path('create_shop') }}">Ajouter un article</a></btn>
+			</div>
 		</section>
 
 	</section>
