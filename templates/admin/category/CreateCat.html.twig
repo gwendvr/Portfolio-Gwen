@@ -5,7 +5,6 @@
 {% block body %}
 	<section id="form">
 		{{ form_start(form) }}
-		
 		<div class="form-modif">
 			<div class='title'>
 				<h1>
@@ -17,5 +16,8 @@
 				<h2>Entrez le nom de la catégorie :</h2>
 				{{ form_widget(form.name) }}
 			</div>
+			{{ form_widget(form.Enregistrer) }}
+		</div>
+		{{ form_end(form) }}
 	</section>
 {% endblock %}
