@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bullet Journal{% endblock %}
+{% block title %}Bullet Journal
+{% endblock %}
 
 {% block body %}
 
@@ -88,7 +89,7 @@
 						{% for tag in tags %}
 							{% if tag.day.day == "Mardi" %}
 								<span class="tag">
-								{{ tag.name }}
+									{{ tag.name }}
 								</span>
 
 								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
@@ -176,7 +177,7 @@
 										<i class="icon ion-android-delete"></i>
 									</button>
 								</form>
-							{% endif %}	
+							{% endif %}
 						{% endfor %}
 					</div>
 				</div>
@@ -264,7 +265,7 @@
 		<a class="black" href="{{ path('create_task') }}">Ajouter une tâche</a>
 		<a class="black" href="{{ path('create_tag') }}">Ajouter un tag</a>
 
-		<div class="white">
+		<section class="bullet-goal">
 			{% for goal in goals %}
 				<form method="POST" action="{{ path('delete_goal', {'id': goal.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
 					<input type="hidden" name="_method" value="DELETE">
@@ -276,7 +277,9 @@
 				{{ goal.name }}
 			{% endfor %}
 			<a class="black" href="{{ path('create_goal') }}">Ajouter un objectif</a>
+		</section>
 
+		<div class="white">
 			{% for shop in shops %}
 				<form method="POST" action="{{ path('delete_shop', {'id': shop.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
 					<input type="hidden" name="_method" value="DELETE">
@@ -293,9 +296,9 @@
 		</div>
 
 		<form method="POST" action="{{ path('bullet_reset') }}" onsubmit="return confirm('La réinitialisation du bullet a été effectué')">
-				<input type="hidden" name="_method" value="DELETE">
-				<input type="hidden" name="_token" value="{{ csrf_token('deleteBullet') }}">
-				<button class="bullet-btn-reset">Réinitialiser le bullet</button>
-			</form>
+			<input type="hidden" name="_method" value="DELETE">
+			<input type="hidden" name="_token" value="{{ csrf_token('deleteBullet') }}">
+			<button class="bullet-btn-reset">Réinitialiser le bullet</button>
+		</form>
 	</section>
 {% endblock %}
