@@ -16,6 +16,7 @@ import './styles/admin.scss';
 import './styles/login.scss';
 import './styles/bullet.scss';
 import './styles/game.scss';
+import './styles/parcours.scss';
 
 // start the Stimulus application
 import './bootstrap';
