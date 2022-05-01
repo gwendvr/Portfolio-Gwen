@@ -32,8 +32,8 @@
 					<div class="fs-20 card-bullet-semaine">
 						{% for task in tasks %}
 							{% if task.day.day == "Lundi" %}
+								{{ task.hour|date("h:i") }} :
 								{{ task.name }}
-								{{ task.hour|date("h:i") }}
 
 								<a class="black" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
 								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
@@ -71,8 +71,8 @@
 					<div class="fs-20 card-bullet-semaine">
 						{% for task in tasks %}
 							{% if task.day.day == "Mardi" %}
+								{{ task.hour|date("h:i") }} :
 								{{ task.name }}
-								{{ task.hour|date("h:i")}}
 
 								<a class="black" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
 								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
@@ -110,8 +110,8 @@
 					<div class="fs-20 card-bullet-semaine">
 						{% for task in tasks %}
 							{% if task.day.day == "Mercredi" %}
+								{{ task.hour|date("h:i") }} :
 								{{ task.name }}
-								{{ task.hour|date("h:i")}}
 
 								<a class="black" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
 								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
@@ -149,8 +149,8 @@
 					<div class="fs-20 card-bullet-semaine">
 						{% for task in tasks %}
 							{% if task.day.day == "Jeudi" %}
+								{{ task.hour|date("h:i") }} :
 								{{ task.name }}
-								{{ task.hour|date("h:i")}}
 
 								<a class="black" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
 								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
@@ -188,8 +188,8 @@
 					<div class="fs-20 card-bullet-semaine">
 						{% for task in tasks %}
 							{% if task.day.day == "Vendredi" %}
+								{{ task.hour|date("h:i") }} :
 								{{ task.name }}
-								{{ task.hour|date("h:i")}}
 
 								<a class="black" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
 								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
@@ -227,8 +227,8 @@
 					<div class="fs-20 card-bullet-semaine">
 						{% for task in tasks %}
 							{% if task.day.day == "Week-end" %}
+								{{ task.hour|date("h:i") }} :
 								{{ task.name }}
-								{{ task.hour|date("h:i")}}
 
 								<a class="black" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
 								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
@@ -281,7 +281,9 @@
 							<i class="icon ion-android-delete"></i>
 						</button>
 					</form>
-					{{ goal.name }}
+					<div class="goal-name">
+						{{ goal.name }}
+					</div>
 				</div>
 			{% endfor %}
 			<div class="bullet-goal-btn">
@@ -300,9 +302,11 @@
 							<i class="icon ion-android-delete"></i>
 						</button>
 					</form>
-					{{ shop.name }}
-					{{ shop.prix }}
-					{{ shop.category.name }}
+					<div class="shop-list">
+						{{ shop.name }}
+						{{ shop.prix }}
+						{{ shop.category.name }}
+					</div>
 				</div>
 			{% endfor %}
 			<div class="bullet-goal-list">
