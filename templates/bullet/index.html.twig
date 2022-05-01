@@ -35,7 +35,7 @@
 								{{ task.hour|date("h:i") }} :
 								{{ task.name }}
 
-								<a class="modif-bullet" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
+								<a class="modif-bullet" href="{{ path('edit_task', {'id': task.id}) }}"><i class="icon ion-edit edit"></i></a>
 								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
@@ -74,7 +74,7 @@
 								{{ task.hour|date("h:i") }} :
 								{{ task.name }}
 
-								<a class="modif-bullet" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
+								<a class="modif-bullet" href="{{ path('edit_task', {'id': task.id}) }}"><i class="icon ion-edit edit"></i></a>
 								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
@@ -113,7 +113,7 @@
 								{{ task.hour|date("h:i") }} :
 								{{ task.name }}
 
-								<a class="modif-bullet" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
+								<a class="modif-bullet" href="{{ path('edit_task', {'id': task.id}) }}"><i class="icon ion-edit edit"></i></a>
 								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
@@ -152,7 +152,7 @@
 								{{ task.hour|date("h:i") }} :
 								{{ task.name }}
 
-								<a class="modif-bullet" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
+								<a class="modif-bullet" href="{{ path('edit_task', {'id': task.id}) }}"><i class="icon ion-edit edit"></i></a>
 								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
@@ -191,7 +191,7 @@
 								{{ task.hour|date("h:i") }} :
 								{{ task.name }}
 
-								<a class="modif-bullet" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
+								<a class="modif-bullet" href="{{ path('edit_task', {'id': task.id}) }}"><i class="icon ion-edit edit"></i></a>
 								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
@@ -230,7 +230,7 @@
 								{{ task.hour|date("h:i") }} :
 								{{ task.name }}
 
-								<a class="modif-bullet" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
+								<a class="modif-bullet" href="{{ path('edit_task', {'id': task.id}) }}"><i class="icon ion-edit edit"></i></a>
 								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
