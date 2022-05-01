@@ -7,7 +7,7 @@
 
 	<section class="bullet-section">
 		<div class="h2-semaine d-flex jc-sa fs-13 fw-9">
-			<h2>
+			<h2 class="h2-semaine-no-div">
 				{% if numbers %}
 					Semaine N°
 					{% for number in numbers %}
@@ -277,11 +277,7 @@
 					<form method="POST" action="{{ path('delete_goal', {'id': goal.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
 						<input type="hidden" name="_method" value="DELETE">
 						<input type="hidden" name="_token" value="{{ csrf_token('deleteGoal' ~ goal.id) }}">
-						<button>
-							<input type="checkbox">
-								<i class="icon ion-android-delete"></i>
-							</input>
-						</button>
+						<input class="icon ion-android-delete type="checkbox"></input>
 					</form>
 					{{ goal.name }}
 				</div>
