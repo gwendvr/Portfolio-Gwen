@@ -306,6 +306,7 @@
 .card-bullet-semaine {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .btn-tag-task-reset {
