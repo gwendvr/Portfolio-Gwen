@@ -7,9 +7,8 @@
 
 	<section class="bullet-section">
 		<div class="h2-semaine d-flex jc-sa fs-13 fw-9">
-			<h2>
+			<h2>Semaine N°</h2>
 				{% if numbers %}
-					Semaine N°
 					{% for number in numbers %}
 						{{ number.number }}
 						<form method="POST" action="{{ path('delete_number', {'id': number.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
@@ -23,13 +22,12 @@
 				{% else %}
 					<a class="semaine-a-bullet" href="{{ path('create_number') }}">Ajouter un numéro de semaine</a>
 				{% endif %}
-			</h2>
 		</div>
 		<div class="bullet-week">
 			<div class="card-bullet">
 				<div class="card-bullet_content bullet-size">
 					<h1 class="txt-center">Lundi</h1>
-					<div class="fs-20">
+					<div class="fs-20 card-bullet-semaine">
 						{% for task in tasks %}
 							{% if task.day.day == "Lundi" %}
 								{{ task.name }}
@@ -68,7 +66,7 @@
 			<div class="card-bullet">
 				<div class="card-bullet_content bullet-size">
 					<h1 class="txt-center">Mardi</h1>
-					<div class="fs-20">
+					<div class="fs-20 card-bullet-semaine">
 						{% for task in tasks %}
 							{% if task.day.day == "Mardi" %}
 								{{ task.name }}
@@ -107,7 +105,7 @@
 			<div class="card-bullet">
 				<div class="card-bullet_content bullet-size">
 					<h1 class="txt-center">Mercredi</h1>
-					<div class="fs-20">
+					<div class="fs-20 card-bullet-semaine">
 						{% for task in tasks %}
 							{% if task.day.day == "Mercredi" %}
 								{{ task.name }}
@@ -146,7 +144,7 @@
 			<div class="card-bullet">
 				<div class="card-bullet_content bullet-size">
 					<h1 class="txt-center">Jeudi</h1>
-					<div class="fs-20">
+					<div class="fs-20 card-bullet-semaine">
 						{% for task in tasks %}
 							{% if task.day.day == "Jeudi" %}
 								{{ task.name }}
@@ -185,7 +183,7 @@
 			<div class="card-bullet">
 				<div class="card-bullet_content bullet-size">
 					<h1 class="txt-center">Vendredi</h1>
-					<div class="fs-20">
+					<div class="fs-20 card-bullet-semaine">
 						{% for task in tasks %}
 							{% if task.day.day == "Vendredi" %}
 								{{ task.name }}
@@ -224,7 +222,7 @@
 			<div class="card-bullet">
 				<div class="card-bullet_content bullet-size">
 					<h1 class="txt-center">Week-end</h1>
-					<div class="fs-20">
+					<div class="fs-20 card-bullet-semaine">
 						{% for task in tasks %}
 							{% if task.day.day == "Week-end" %}
 								{{ task.name }}
