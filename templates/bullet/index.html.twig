@@ -7,8 +7,9 @@
 
 	<section class="bullet-section">
 		<div class="h2-semaine d-flex jc-sa fs-13 fw-9">
-			<h2>Semaine N°
+			<h2>
 				{% if numbers %}
+					Semaine N°
 					{% for number in numbers %}
 						{{ number.number }}
 						<form method="POST" action="{{ path('delete_number', {'id': number.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
