@@ -19,7 +19,7 @@
 
 				<div class="d-flex">
 					<a class="slide button-modif" href="{{ path('edit_competence', {'id': competence.id}) }}">Modifier</a>
-					<form method="POST" action="{{ path('delete_competence', {'id': competence.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+					<form method="POST" action="{{ path('delete_competence', {'id': competence.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 						<input type="hidden" name="_method" value="DELETE">
 						<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ competence.id) }}">
 						<button class="close button-modif">supprimer</button>

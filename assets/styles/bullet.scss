@@ -297,3 +297,49 @@
     align-items: center;
     justify-content: center;
 }
+
+.tag-btn-bullet {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.card-bullet-semaine {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.btn-tag-task-reset {
+    display: flex;
+    justify-content: center;
+}
+
+.semaine-form {
+    padding-left: 20px;
+}
+
+#tag_day {
+    margin-bottom: 20px;
+}
+
+.h2-semaine-no-div {
+    display: flex;
+}
+
+#task_hour_hour {
+    margin-bottom: 20px;
+}
+
+.goal-name {
+    padding-left: 10px;
+    padding-bottom: 20px;
+}
+
+.shop-list {
+    padding-left: 10px;
+    padding-bottom: 20px;
+}
+
+.tags-div {
+    padding-top: 20px;
+}
