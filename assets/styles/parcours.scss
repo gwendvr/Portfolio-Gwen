@@ -3,7 +3,6 @@
 }
 
 .timeline-start {
-    display: table;
     font-family: "Roboto", sans-serif;
     font-size: 18px;
     font-weight: 900;
@@ -11,7 +10,7 @@
     background: #00b0bd;
     padding: 15px 23px;
     color: #fff;
-    max-width: 5%;
+    max-width: 20%;
     width: 100%;
     text-align: center;
     margin: 0 auto;
@@ -96,16 +95,6 @@
     font-size: 23px;
     font-family: "FontAwesome";
     color: #fff;
-}
-
-.content-left:before {
-    content: "\f0da";
-    right: -8px;
-}
-
-.content-right:before {
-    content: "\f0d9";
-    left: -8px;
 }
 
 .date-content {

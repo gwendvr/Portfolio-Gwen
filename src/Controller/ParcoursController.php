@@ -12,7 +12,6 @@ class ParcoursController extends AbstractController
     public function index(): Response
     {
         return $this->render('parcours/index.html.twig', [
-            'controller_name' => 'ParcoursController',
         ]);
     }
 }
