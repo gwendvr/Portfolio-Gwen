@@ -295,7 +295,9 @@
 						<input type="hidden" name="_method" value="DELETE">
 						<input type="hidden" name="_token" value="{{ csrf_token('deleteShop' ~ shop.id) }}">
 						<button>
-							<input type="checkbox"></input>
+							<input type="checkbox">
+								<i class="icon ion-android-delete"></i>
+							</input>
 						</button>
 					</form>
 					{{ shop.name }}
