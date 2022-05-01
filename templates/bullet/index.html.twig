@@ -260,7 +260,7 @@
 		</div>
 		<div class="btn-tag-task-reset">
 			<button class="bullet-btn"><a class="black" href="{{ path('create_task') }}">Ajouter une tâche</a></btn>
-			<button class="bullet-btn"><a class="black" href="{{ path('create_tag') }}">Ajouter un tag</a></btn>
+			<button class="bullet-btn tag-btn-bullet"><a class="black" href="{{ path('create_tag') }}">Ajouter un tag</a></btn>
 			<form method="POST" action="{{ path('bullet_reset') }}" onsubmit="return confirm('La réinitialisation du bullet a été effectué')">
 				<input type="hidden" name="_method" value="DELETE">
 				<input type="hidden" name="_token" value="{{ csrf_token('deleteBullet') }}">
@@ -279,8 +279,8 @@
 							<i class="icon ion-android-delete"></i>
 						</button>
 					</form>
+					{{ goal.name }}
 				</div>
-				{{ goal.name }}
 			{% endfor %}
 			<div class="bullet-goal-btn">
 				<button class="bullet-btn"><a class="black" href="{{ path('create_goal') }}">Ajouter un objectif</a></btn>
@@ -298,10 +298,10 @@
 							<i class="icon ion-android-delete"></i>
 						</button>
 					</form>
-				</div>
-				{{ shop.name }}
+					{{ shop.name }}
 				{{ shop.prix }}
 				{{ shop.category.name }}
+				</div>
 			{% endfor %}
 			<div class="bullet-goal-list">
 				<button class="bullet-btn"><a class="black" href="{{ path('create_shop') }}">Ajouter un article</a></btn>
