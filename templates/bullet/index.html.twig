@@ -12,7 +12,7 @@
 					Semaine N°
 					{% for number in numbers %}
 						{{ number.number }}
-						<form class="semaine-form" method="POST" action="{{ path('delete_number', {'id': number.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+						<form class="semaine-form" method="POST" action="{{ path('delete_number', {'id': number.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 							<input type="hidden" name="_method" value="DELETE">
 							<input type="hidden" name="_token" value="{{ csrf_token('deleteNumber' ~ number.id) }}">
 							<button>
@@ -36,7 +36,7 @@
 								{{ task.name }}
 
 								<a class="black" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
-								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
 									<button>
@@ -46,14 +46,14 @@
 							{% endif %}
 						{% endfor %}
 					</div>
-					<div class="d-flex jc-sa fs-13 fw-9">
+					<div class="d-flex jc-sa fs-13 fw-9 tags-div">
 						{% for tag in tags %}
 							{% if tag.day.day == "Lundi" %}
 								<span class="tag">
 									{{ tag.name }}
 								</span>
 
-								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTag' ~ tag.id) }}">
 									<button>
@@ -75,7 +75,7 @@
 								{{ task.name }}
 
 								<a class="black" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
-								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
 									<button>
@@ -85,14 +85,14 @@
 							{% endif %}
 						{% endfor %}
 					</div>
-					<div class="d-flex jc-sa fs-13 fw-9">
+					<div class="d-flex jc-sa fs-13 fw-9 tags-div">
 						{% for tag in tags %}
 							{% if tag.day.day == "Mardi" %}
 								<span class="tag">
 									{{ tag.name }}
 								</span>
 
-								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTag' ~ tag.id) }}">
 									<button>
@@ -114,7 +114,7 @@
 								{{ task.name }}
 
 								<a class="black" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
-								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
 									<button>
@@ -124,14 +124,14 @@
 							{% endif %}
 						{% endfor %}
 					</div>
-					<div class="d-flex jc-sa fs-13 fw-9">
+					<div class="d-flex jc-sa fs-13 fw-9 tags-div">
 						{% for tag in tags %}
 							{% if tag.day.day == "Mercredi" %}
 								<span class="tag">
 									{{ tag.name }}
 								</span>
 
-								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTag' ~ tag.id) }}">
 									<button>
@@ -153,7 +153,7 @@
 								{{ task.name }}
 
 								<a class="black" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
-								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
 									<button>
@@ -163,14 +163,14 @@
 							{% endif %}
 						{% endfor %}
 					</div>
-					<div class="d-flex jc-sa fs-13 fw-9">
+					<div class="d-flex jc-sa fs-13 fw-9 tags-div">
 						{% for tag in tags %}
 							{% if tag.day.day == "Jeudi" %}
 								<span class="tag">
 									{{ tag.name }}
 								</span>
 
-								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTag' ~ tag.id) }}">
 									<button>
@@ -192,7 +192,7 @@
 								{{ task.name }}
 
 								<a class="black" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
-								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
 									<button>
@@ -202,14 +202,14 @@
 							{% endif %}
 						{% endfor %}
 					</div>
-					<div class="d-flex jc-sa fs-13 fw-9">
+					<div class="d-flex jc-sa fs-13 fw-9 tags-div">
 						{% for tag in tags %}
 							{% if tag.day.day == "Vendredi" %}
 								<span class="tag">
 									{{ tag.name }}
 								</span>
 
-								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTag' ~ tag.id) }}">
 									<button>
@@ -231,7 +231,7 @@
 								{{ task.name }}
 
 								<a class="black" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
-								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
 									<button>
@@ -241,13 +241,13 @@
 							{% endif %}
 						{% endfor %}
 					</div>
-					<div class="d-flex jc-sa fs-13 fw-9">
+					<div class="d-flex jc-sa fs-13 fw-9 tags-div">
 						{% for tag in tags %}
 							{% if tag.day.day == "Week-end" %}
 								<span class="tag">
 									{{ tag.name }}
 								</span>
-								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTag' ~ tag.id) }}">
 									<button>
@@ -263,7 +263,7 @@
 		<div class="btn-tag-task-reset">
 			<button class="bullet-btn"><a class="black" href="{{ path('create_task') }}">Ajouter une tâche</a></btn>
 			<button class="bullet-btn tag-btn-bullet"><a class="black" href="{{ path('create_tag') }}">Ajouter un tag</a></btn>
-			<form method="POST" action="{{ path('bullet_reset') }}" onsubmit="return confirm('La réinitialisation du bullet a été effectué')">
+			<form method="POST" action="{{ path('bullet_reset') }}" onsubmit="return confirm('La réinitialisation du bullet a été effectuée')">
 				<input type="hidden" name="_method" value="DELETE">
 				<input type="hidden" name="_token" value="{{ csrf_token('deleteBullet') }}">
 				<button class="bullet-btn">Réinitialiser le bullet</button>
@@ -274,7 +274,7 @@
 			<h2>Objectifs de la semaine :</h2>
 			{% for goal in goals %}
 				<div class="form-bullet-goal">
-					<form method="POST" action="{{ path('delete_goal', {'id': goal.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+					<form method="POST" action="{{ path('delete_goal', {'id': goal.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 						<input type="hidden" name="_method" value="DELETE">
 						<input type="hidden" name="_token" value="{{ csrf_token('deleteGoal' ~ goal.id) }}">
 						<button>
@@ -295,7 +295,7 @@
 			<h2>Liste de course :</h2>
 			{% for shop in shops %}
 				<div class="form-bullet-list">
-					<form method="POST" action="{{ path('delete_shop', {'id': shop.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+					<form method="POST" action="{{ path('delete_shop', {'id': shop.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 						<input type="hidden" name="_method" value="DELETE">
 						<input type="hidden" name="_token" value="{{ csrf_token('deleteShop' ~ shop.id) }}">
 						<button>
