@@ -6,7 +6,7 @@
 {% block body %}
 
 	<section class="bullet-section">
-		<div class="h2-semaine">
+		<div class="h2-semaine d-flex jc-sa fs-13 fw-9">
 			<h2>
 				{% if numbers %}
 					Semaine N°
@@ -260,14 +260,15 @@
 				</div>
 			</div>
 		</div>
-
-		<button class="bullet-btn"><a class="black" href="{{ path('create_task') }}">Ajouter une tâche</a></btn>
-		<button class="bullet-btn"><a class="black" href="{{ path('create_tag') }}">Ajouter un tag</a></btn>
-		<form method="POST" action="{{ path('bullet_reset') }}" onsubmit="return confirm('La réinitialisation du bullet a été effectué')">
-			<input type="hidden" name="_method" value="DELETE">
-			<input type="hidden" name="_token" value="{{ csrf_token('deleteBullet') }}">
-			<button class="bullet-btn">Réinitialiser le bullet</button>
-		</form>
+		<div class="btn-tag-task-reset">
+			<button class="bullet-btn"><a class="black" href="{{ path('create_task') }}">Ajouter une tâche</a></btn>
+			<button class="bullet-btn"><a class="black" href="{{ path('create_tag') }}">Ajouter un tag</a></btn>
+			<form method="POST" action="{{ path('bullet_reset') }}" onsubmit="return confirm('La réinitialisation du bullet a été effectué')">
+				<input type="hidden" name="_method" value="DELETE">
+				<input type="hidden" name="_token" value="{{ csrf_token('deleteBullet') }}">
+				<button class="bullet-btn">Réinitialiser le bullet</button>
+			</form>
+		</div>
 
 		<section class="bullet-goal">
 			<h2>Objectifs de la semaine :</h2>

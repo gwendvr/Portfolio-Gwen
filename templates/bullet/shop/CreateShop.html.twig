@@ -6,14 +6,11 @@
 <section class="bullet-create-edit-section">
 	<div class="bullet-create-edit-form">
     {{ form_start(form) }}
-      <h2>Entrez le nom de l'article :</h2>
       {{ form_widget(form.name, {'attr': {'placeholder': "nom de l'article"}}) }}
 
-          <h2>Entrez le prix :</h2>
           {{ form_widget(form.prix, {'attr': {'placeholder': 'prix'}}) }}
 
-          <h2>Choisissez la catégory :</h2>
-          <a class="blue" href="{{ path('create_shopCat') }}">+ Catégory</a>
+          <a class="blue" href="{{ path('create_shopCat') }}">Ajouter une catégorie</a>
           {{ form_widget(form.category) }}
 
       {{ form_widget(form.Enregistrer) }}
