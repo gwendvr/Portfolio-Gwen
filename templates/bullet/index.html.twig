@@ -7,7 +7,7 @@
 
 	<section class="bullet-section">
 		<div class="h2-semaine d-flex jc-sa fs-13 fw-9">
-			<h2>Semaine N°</h2>
+			<h2>Semaine N°
 				{% if numbers %}
 					{% for number in numbers %}
 						{{ number.number }}
@@ -22,6 +22,7 @@
 				{% else %}
 					<a class="semaine-a-bullet" href="{{ path('create_number') }}">Ajouter un numéro de semaine</a>
 				{% endif %}
+			</h2>
 		</div>
 		<div class="bullet-week">
 			<div class="card-bullet">
