@@ -272,6 +272,7 @@
 			<h2>Objectifs de la semaine :</h2>
 			{% for goal in goals %}
 				<div class="form-bullet-goal">
+					{{ goal.name }}
 					<form method="POST" action="{{ path('delete_goal', {'id': goal.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
 						<input type="hidden" name="_method" value="DELETE">
 						<input type="hidden" name="_token" value="{{ csrf_token('deleteGoal' ~ goal.id) }}">
@@ -279,7 +280,6 @@
 							<i class="icon ion-android-delete"></i>
 						</button>
 					</form>
-					{{ goal.name }}
 				</div>
 			{% endfor %}
 			<div class="bullet-goal-btn">
@@ -291,6 +291,9 @@
 			<h2>Liste de course :</h2>
 			{% for shop in shops %}
 				<div class="form-bullet-list">
+					{{ shop.name }}
+					{{ shop.prix }}
+					{{ shop.category.name }}
 					<form method="POST" action="{{ path('delete_shop', {'id': shop.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
 						<input type="hidden" name="_method" value="DELETE">
 						<input type="hidden" name="_token" value="{{ csrf_token('deleteShop' ~ shop.id) }}">
@@ -298,9 +301,6 @@
 							<i class="icon ion-android-delete"></i>
 						</button>
 					</form>
-					{{ shop.name }}
-				{{ shop.prix }}
-				{{ shop.category.name }}
 				</div>
 			{% endfor %}
 			<div class="bullet-goal-list">
