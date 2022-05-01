@@ -277,7 +277,9 @@
 					<form method="POST" action="{{ path('delete_goal', {'id': goal.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
 						<input type="hidden" name="_method" value="DELETE">
 						<input type="hidden" name="_token" value="{{ csrf_token('deleteGoal' ~ goal.id) }}">
-						<input class="icon ion-android-delete" type="checkbox">
+						<button>
+							<i class="icon ion-android-delete"></i>
+						</button>
 					</form>
 					{{ goal.name }}
 				</div>
@@ -295,9 +297,7 @@
 						<input type="hidden" name="_method" value="DELETE">
 						<input type="hidden" name="_token" value="{{ csrf_token('deleteShop' ~ shop.id) }}">
 						<button>
-							<input type="checkbox">
-								<i class="icon ion-android-delete"></i>
-							</input>
+							<i class="icon ion-android-delete"></i>
 						</button>
 					</form>
 					{{ shop.name }}
