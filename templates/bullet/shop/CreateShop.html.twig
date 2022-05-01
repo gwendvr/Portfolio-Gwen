@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'un article{% endblock %}
+    
+{% block body %}
+<section class="bullet-create-edit-section">
+	<div class="bullet-create-edit-form">
+    {{ form_start(form) }}
+      {{ form_widget(form.name, {'attr': {'placeholder': "nom de l'article"}}) }}
+
+          {{ form_widget(form.prix, {'attr': {'placeholder': 'prix'}}) }}
+
+          <a class="blue" href="{{ path('create_shopCat') }}">Ajouter une catégorie</a>
+          {{ form_widget(form.category) }}
+
+      {{ form_widget(form.Enregistrer) }}
+    {{ form_end(form) }}
+  </div>
+</section>
+{% endblock %}

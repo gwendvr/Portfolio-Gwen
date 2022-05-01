@@ -2,25 +2,18 @@
 
 namespace App\Form;
 
-use App\Entity\DayCategory;
-use App\Entity\Tasks;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class TaskType extends AbstractType
+class CatType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('name')
-            ->add('hour')
-            ->add('day', EntityType::class, [
-                'class' => DayCategory::class,
-                'choice_label' => 'day'
-            ])
             ->add('Enregistrer', SubmitType::class, [
                 'attr' => [
                     'class' => 'button',
@@ -32,7 +25,7 @@ class TaskType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Tasks::class,
+            'data_class' => Category::class,
         ]);
     }
 }

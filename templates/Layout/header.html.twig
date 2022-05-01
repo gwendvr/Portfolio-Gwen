@@ -3,8 +3,8 @@
 </head>
 
 <div class="navbar">
-	<a class="brand" href="{{ path('app_home') }}"><img src="{{asset('images/logo.PNG')}}"></a>
-	<div class="navigation">
+	<a class="logo" href="{{ path('app_home') }}"><img src="{{asset('images/logo.PNG')}}"></a>
+	<div class="navbar-items">
 		<div class="dropdown">
 			<a class="nav-item" href="{{ path('app_store') }}"><button class="dropbtn">STORE</button></a>
 		</div>
@@ -12,7 +12,7 @@
 			<a class="nav-item" href="{{ path('app_tableau') }}"><button class="dropbtn">TABLEAU</button></a>
 		</div>
         <div class="dropdown">
-			<a class="nav-item" href="/cv-gwen.pdf" download><button class="dropbtn">CV</button></a>
+			<a class="nav-item" href="/cv-gwen.pdf" target="_blank"><button class="dropbtn">CV</button></a>
 		</div>
 		<div class="dropdown">
 			<a class="nav-item" href="{{ path('app_bullet') }}"><button class="dropbtn">BULLET</button></a>

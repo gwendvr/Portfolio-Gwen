@@ -1,11 +1,21 @@
-<div class="footer-basic">
+<div class="footer">
     <footer>
-        <div class="social"><a href="https://github.com/gwendvr" target="_blank"><i class="icon ion-social-github"></i></a><a href="https://www.linkedin.com/in/gwenaelle-devriendt-3144a5143/" target="_blank"><i class="icon ion-social-linkedin"></i></a><a href="{{ path('app_home') }}" target="_blank">P</a>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="{{ path('app_home') }}">Accueil</a></li>
-                <li class="list-inline-item"><a href="#">Projets</a></li>
-                <li class="list-inline-item"><a href="#">CV</a></li>
-                <li class="list-inline-item"><a href="#">Jeux</a></li>
+        <div class="social">
+            <a href="https://github.com/gwendvr" target="_blank">
+                <i class="icon ion-social-github"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/gwenaelle-devriendt-3144a5143/" target="_blank">
+                <i class="icon ion-social-linkedin"></i>
+            </a>
+
+            <a href="{{ path('app_home') }}" target="_blank">P</a>
+
+            <ul>
+                <li><a href="{{ path('app_home') }}">Accueil</a></li>
+                <li><a href="{{ path('app_store') }}">Projets</a></li>
+                <li><a href="https://onedrive.live.com/edit.aspx?resid=15229BBC8D2A958D!76373&ithint=file%2cpptx" target="_blank">Euodia</a></li>
+                <li><a href="{{ path('app_game') }}">Jeux</a></li>
             </ul>
             <p class="copyright">Gwen Portfolio © 2022</p>
     </footer>

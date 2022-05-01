@@ -16,6 +16,10 @@ class Tag
     #[ORM\Column(type: 'string', length: 150)]
     private $name;
 
+    #[ORM\ManyToOne(targetEntity: DayCategory::class, inversedBy: 'tag')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $day;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -29,6 +33,18 @@ class Tag
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getDay(): ?DayCategory
+    {
+        return $this->day;
+    }
+
+    public function setDay(?DayCategory $day): self
+    {
+        $this->day = $day;
 
         return $this;
     }

@@ -18,7 +18,7 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            security: false
+            security: false # JUSTE POUR HEROKU
             form_login:
                 check_path: login
             logout:

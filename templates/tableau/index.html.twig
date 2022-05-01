@@ -1,29 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello TableauController!
-{% endblock %}
+{% block title %}Tableau des compétences{% endblock %}
 
 {% block body %}
-	<div class="goals"><span>Tableau des Compétences</span>
-        <div class="table-competence">
+	<div class="table-competence"><span>Tableau des Compétences</span>
+        <div class="table-competence-content">
 			<table class="width-100">
 				<tbody>
 					<tr class="txt-center upper blue">
-						<td class="days__item"><strong>Compétence</strong></td>
-						<td class="days__item width-15"><strong>date de début</strong></td>
-						<td class="days__item width-15"><strong>date de fin</strong></td>
-						<td class="days__item"><strong>Catégorie</strong></td>
+						<td class="table-case"><strong>Compétence</strong></td>
+						<td class="table-case width-15"><strong>date de début</strong></td>
+						<td class="table-case width-15"><strong>date de fin</strong></td>
+						<td class="table-case"><strong>Catégorie</strong></td>
 					</tr>
 					{% for competence in competences %}
 						<tr class="txt-center white fs-13">
-							<td class="days__item">{{ competence.titre }}</td>
-							<td class="days__item width-15">{{ competence.StartDate|date("d/m/Y") }}</td>
-							<td class=" days__item width-15">{{ competence.EndDate|date("d/m/Y") }}</td>
-							<td class="days__item">{{ competence.category.name }}</td>
+							<td class="table-case">{{ competence.titre }}</td>
+							<td class="table-case width-15">{{ competence.StartDate|date("d/m/Y") }}</td>
+							<td class=" table-case width-15">{{ competence.EndDate|date("d/m/Y") }}</td>
+							<td class="table-case">{{ competence.category.name }}</td>
 						</tr>
 					{% endfor %}
 				</tbody>
 			</table>
 		</div>
     </div>
+
+	<button class="btn-download">
+   		<a href="./Tableau.pdf" download><div class="arrow"></div></a>
+	</button>
 {% endblock %}

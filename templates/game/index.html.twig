@@ -1,0 +1,32 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Jeux{% endblock %}
+
+{% block body %}
+    <div class="games">
+        <section id="morpion">
+            <h1 class="blue">Morpion</h1>
+            <div class="morpion-content">
+                <div data-index="0" class="case"></div>
+                <div data-index="1" class="case"></div>
+                <div data-index="2" class="case"></div>
+                <div data-index="3" class="case"></div>
+                <div data-index="4" class="case"></div>
+                <div data-index="5" class="case"></div>
+                <div data-index="6" class="case"></div>
+                <div data-index="7" class="case"></div>
+                <div data-index="8" class="case"></div>
+            </div>
+            <h6 class="blue fs-18 mg-s"></h6>
+            <button id="replay">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Recommencer
+            </button>
+        </section>
+    </div>
+
+{% endblock %}

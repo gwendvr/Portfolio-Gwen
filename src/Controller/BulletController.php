@@ -2,15 +2,22 @@
 
 namespace App\Controller;
 
+use App\Entity\DayCategory;
 use App\Entity\Goal;
+use App\Entity\Shop;
+use App\Entity\ShopCategory;
 use App\Entity\Tag;
 use App\Entity\Tasks;
 use App\Entity\WeekNumber;
+use App\Form\DayType;
 use App\Form\GoalType;
 use App\Form\NumberType;
+use App\Form\ShopCatType;
+use App\Form\ShopType;
 use App\Form\TagType;
 use App\Form\TaskType;
 use App\Repository\GoalRepository;
+use App\Repository\ShopRepository;
 use App\Repository\TagRepository;
 use App\Repository\TasksRepository;
 use App\Repository\WeekNumberRepository;
@@ -23,13 +30,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class BulletController extends AbstractController
 {
     public function __construct(EntityManagerInterface $em, TasksRepository $repoTask,
-    WeekNumberRepository $repoNumber, TagRepository $repoTag, GoalRepository $repoGoal)
+    WeekNumberRepository $repoNumber, TagRepository $repoTag, GoalRepository $repoGoal,
+    ShopRepository $repoShop)
     {
         $this->em = $em;
         $this->repoTask = $repoTask;
         $this->repoNumber = $repoNumber;
         $this->repoTag = $repoTag;
         $this->repoGoal = $repoGoal;
+        $this->repoShop = $repoShop;
     }
 
     #[Route('/bullet', name: 'app_bullet')]
@@ -39,11 +48,13 @@ class BulletController extends AbstractController
         $numbers = $this->repoNumber->findAll();
         $tags = $this->repoTag->findAll();
         $goals = $this->repoGoal->findAll();
+        $shops = $this->repoShop->findAll();
         return $this->render('bullet/index.html.twig', [
             'tasks'=> $tasks,
             'numbers'=> $numbers,
             'tags'=> $tags,
-            'goals'=> $goals
+            'goals'=> $goals,
+            'shops'=> $shops
         ]);
     }
 
@@ -98,6 +109,26 @@ class BulletController extends AbstractController
         }
 
         return $this->redirectToRoute('app_bullet');
+    }
+
+    /****************** DAY ******************/
+    #[Route('/bullet/createDay', name: 'create_day')]
+    public function createDay(Request $request) : Response
+    {
+        $day = new DayCategory();
+        $form = $this->createForm(DayType::class, $day);
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $this->em->persist($day);
+            $this->em->flush();
+
+            return $this->redirectToRoute('app_bullet');
+        }
+        return $this->render("bullet/tasks/CreateDay.html.twig", [
+            'form' => $form->createView()
+        ]);
     }
 
     /****************** WEEK NUMBER ******************/
@@ -226,5 +257,57 @@ class BulletController extends AbstractController
         }
 
         return $this->redirectToRoute('app_bullet');
+    }
+
+    /****************** SHOPPING ******************/
+    #[Route('/bullet/createShop', name: 'create_shop')]
+    public function createShop(Request $request) : Response
+    {
+        $shop = new Shop();
+        $form = $this->createForm(ShopType::class, $shop);
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $this->em->persist($shop);
+            $this->em->flush();
+
+            return $this->redirectToRoute('app_bullet');
+        }
+        return $this->render("bullet/shop/CreateShop.html.twig", [
+            'form' => $form->createView()
+        ]);
+    }
+
+    #[Route('/bullet/deleteshop/{id}', name: 'delete_shop')]
+    public function deleteShop(int $id, Request $request, Shop $shop) : Response
+    {
+        if($this->isCsrfTokenValid('deleteShop'. $shop->getId(), $request->get('_token')))
+        {
+            $this->em->remove($shop);
+            $this->em->flush();
+            $this->addFlash('Success', "L'article a été supprimé !");
+        }
+
+        return $this->redirectToRoute('app_bullet');
+    }
+
+    #[Route('/bullet/createshopCat', name: 'create_shopCat')]
+    public function createShopCat(Request $request) : Response
+    {
+        $shopCat = new ShopCategory();
+        $form = $this->createForm(ShopCatType::class, $shopCat);
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $this->em->persist($shopCat);
+            $this->em->flush();
+
+            return $this->redirectToRoute('create_shop');
+        }
+        return $this->render("bullet/shop/CreateshopCat.html.twig", [
+            'form' => $form->createView()
+        ]);
     }
 }   
