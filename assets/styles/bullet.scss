@@ -345,7 +345,6 @@
 }
 
 .modif-bullet {
-    padding-left: 20px;
     color: white;
 }
 
@@ -353,4 +352,9 @@
     background-color: unset;
     border-style: unset;
     cursor: pointer;
+}
+
+.edit {
+    font-size: 15px;
+    color: black;
 }
