@@ -352,7 +352,7 @@
 								</button>
 							</form>
 							<div class="goal-name">
-								<button onclick="addClass()" id="btn-goal-name">{{ goal.name }}</button>
+								<button class="goalRestant" onclick="goalAddClass()" id="btn-goal-name">{{ goal.name }}</button>
 							</div>
 						</div>
 					{% endfor %}
@@ -389,7 +389,7 @@
 								</button>
 							</form>
 							<div class="shop-list">
-								<button onclick="addClass()" id="btn-shop-name">{{ shop.name }}</button>
+								<button class="shopRestant" onclick="shopAddClass()" id="btn-shop-name">{{ shop.name }}</button>
 								{{ shop.prix }}
 								€
 								<!-- {{ shop.category.name }} -->
