@@ -18,7 +18,7 @@
 				{{ competence.category.name }}</p>
 
 				<div class="d-flex">
-					<a class="slide button-modif" href="{{ path('edit_competence', {'id': competence.id}) }}"><i class="fa-regular fa-pen-to-square"></i></a>
+					<a class="slide button-modif" href="{{ path('edit_competence', {'id': competence.id}) }}">Modifier</a>
 					<form method="POST" action="{{ path('delete_competence', {'id': competence.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 						<input type="hidden" name="_method" value="DELETE">
 						<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ competence.id) }}">
