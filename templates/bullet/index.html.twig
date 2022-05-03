@@ -15,7 +15,7 @@
 						<form class="semaine-form" method="POST" action="{{ path('delete_number', {'id': number.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 							<input type="hidden" name="_method" value="DELETE">
 							<input type="hidden" name="_token" value="{{ csrf_token('deleteNumber' ~ number.id) }}">
-							<button>
+							<button class="btn-delete">
 								<i class="icon ion-android-delete"></i>
 							</button>
 						</form>
@@ -32,14 +32,23 @@
 					<div class="fs-20 card-bullet-semaine">
 						{% for task in tasks %}
 							{% if task.day.day == "Lundi" %}
-								{{ task.hour|date("h:i") }} :
+								{{ task.hour|date("h:i") }}
+								:
 								{{ task.name }}
 
-								<a class="black" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
+								<a class="modif-bullet" href="{{path('edit_task',{'id':task.id})}}">
+									<i class="fa-regularfa-pen-to-square"></i>
+								</a>=======<a class="modif-bullet" href="{{path('edit_task',{'id':task.id})}}">
+									<i class="iconion-editedit"></i>
+								</a>
+								=======
+								<a class="modif-bullet" href="{{ path('edit_task', {'id': task.id}) }}">
+									<i class="icon ion-edit edit"></i>
+								</a>
 								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
-									<button>
+									<button class="btn-delete">
 										<i class="icon ion-android-delete"></i>
 									</button>
 								</form>
@@ -56,7 +65,7 @@
 								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTag' ~ tag.id) }}">
-									<button>
+									<button class="btn-delete">
 										<i class="icon ion-android-delete"></i>
 									</button>
 								</form>
@@ -71,14 +80,23 @@
 					<div class="fs-20 card-bullet-semaine">
 						{% for task in tasks %}
 							{% if task.day.day == "Mardi" %}
-								{{ task.hour|date("h:i") }} :
+								{{ task.hour|date("h:i") }}
+								:
 								{{ task.name }}
 
-								<a class="black" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
+								<a class="modif-bullet" href="{{path('edit_task',{'id':task.id})}}">
+									<i class="fa-regularfa-pen-to-square"></i>
+								</a>=======<a class="modif-bullet" href="{{path('edit_task',{'id':task.id})}}">
+									<i class="iconion-editedit"></i>
+								</a>
+								=======
+								<a class="modif-bullet" href="{{ path('edit_task', {'id': task.id}) }}">
+									<i class="icon ion-edit edit"></i>
+								</a>
 								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
-									<button>
+									<button class="btn-delete">
 										<i class="icon ion-android-delete"></i>
 									</button>
 								</form>
@@ -95,7 +113,7 @@
 								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTag' ~ tag.id) }}">
-									<button>
+									<button class="btn-delete">
 										<i class="icon ion-android-delete"></i>
 									</button>
 								</form>
@@ -110,14 +128,23 @@
 					<div class="fs-20 card-bullet-semaine">
 						{% for task in tasks %}
 							{% if task.day.day == "Mercredi" %}
-								{{ task.hour|date("h:i") }} :
+								{{ task.hour|date("h:i") }}
+								:
 								{{ task.name }}
 
-								<a class="black" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
+								<a class="modif-bullet" href="{{path('edit_task',{'id':task.id})}}">
+									<i class="fa-regularfa-pen-to-square"></i>
+								</a>
+								<a class="modif-bullet" href="{{path('edit_task',{'id':task.id})}}">
+									<i class="iconion-editedit"></i>
+								</a>
+								<a class="modif-bullet" href="{{ path('edit_task', {'id': task.id}) }}">
+									<i class="icon ion-edit edit"></i>
+								</a>
 								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
-									<button>
+									<button class="btn-delete">
 										<i class="icon ion-android-delete"></i>
 									</button>
 								</form>
@@ -134,7 +161,7 @@
 								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token('deleteTag' ~ tag.id) }}">
-									<button>
+									<button class="btn-delete">
 										<i class="icon ion-android-delete"></i>
 									</button>
 								</form>
@@ -149,170 +176,238 @@
 					<div class="fs-20 card-bullet-semaine">
 						{% for task in tasks %}
 							{% if task.day.day == "Jeudi" %}
-								{{ task.hour|date("h:i") }} :
+								{{ task.hour|date("h:i") }}
+								:
 								{{ task.name }}
 
-								<a class="black" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
-								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
-									<input type="hidden" name="_method" value="DELETE">
-									<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
-									<button>
-										<i class="icon ion-android-delete"></i>
-									</button>
-								</form>
-							{% endif %}
-						{% endfor %}
-					</div>
-					<div class="d-flex jc-sa fs-13 fw-9 tags-div">
-						{% for tag in tags %}
-							{% if tag.day.day == "Jeudi" %}
-								<span class="tag">
-									{{ tag.name }}
-								</span>
-
-								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
-									<input type="hidden" name="_method" value="DELETE">
-									<input type="hidden" name="_token" value="{{ csrf_token('deleteTag' ~ tag.id) }}">
-									<button>
-										<i class="icon ion-android-delete"></i>
-									</button>
-								</form>
-							{% endif %}
-						{% endfor %}
-					</div>
+								<a class="modif-bullet" href="{{path('edit_task',{'id':task.id})}}">
+									<i class="fa-regularfa-pen-to-square"></i>
+								</i>
+							</a>
+							<a class="modif-bullet" href="{{path('edit_task',{'id':task.id})}}">
+								<i class="iconion-editedit"></i>
+							</a>
+							=======
+							<a class="modif-bullet" href="{{ path('edit_task', {'id': task.id}) }}">
+								<i class="icon ion-edit edit"></i>
+							</a>
+							<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
+								<input type="hidden" name="_method" value="DELETE">
+								<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
+								<button class="btn-delete">
+									<i class="icon ion-android-delete"></i>
+								</button>
+							</form>
+						{% endif %}
+					{% endfor %}
 				</div>
-			</div>
-			<div class="card-bullet">
-				<div class="card-bullet_content bullet-size">
-					<h1 class="txt-center">Vendredi</h1>
-					<div class="fs-20 card-bullet-semaine">
-						{% for task in tasks %}
-							{% if task.day.day == "Vendredi" %}
-								{{ task.hour|date("h:i") }} :
-								{{ task.name }}
+				<div class="d-flex jc-sa fs-13 fw-9 tags-div">
+					{% for tag in tags %}
+						{% if tag.day.day == "Jeudi" %}
+							<span class="tag">
+								{{ tag.name }}
+							</span>
 
-								<a class="black" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
-								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
-									<input type="hidden" name="_method" value="DELETE">
-									<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
-									<button>
-										<i class="icon ion-android-delete"></i>
-									</button>
-								</form>
-							{% endif %}
-						{% endfor %}
-					</div>
-					<div class="d-flex jc-sa fs-13 fw-9 tags-div">
-						{% for tag in tags %}
-							{% if tag.day.day == "Vendredi" %}
-								<span class="tag">
-									{{ tag.name }}
-								</span>
-
-								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
-									<input type="hidden" name="_method" value="DELETE">
-									<input type="hidden" name="_token" value="{{ csrf_token('deleteTag' ~ tag.id) }}">
-									<button>
-										<i class="icon ion-android-delete"></i>
-									</button>
-								</form>
-							{% endif %}
-						{% endfor %}
-					</div>
-				</div>
-			</div>
-			<div class="card-bullet">
-				<div class="card-bullet_content bullet-size">
-					<h1 class="txt-center">Week-end</h1>
-					<div class="fs-20 card-bullet-semaine">
-						{% for task in tasks %}
-							{% if task.day.day == "Week-end" %}
-								{{ task.hour|date("h:i") }} :
-								{{ task.name }}
-
-								<a class="black" href="{{ path('edit_task', {'id': task.id}) }}">Modifier</a>
-								<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
-									<input type="hidden" name="_method" value="DELETE">
-									<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
-									<button>
-										<i class="icon ion-android-delete"></i>
-									</button>
-								</form>
-							{% endif %}
-						{% endfor %}
-					</div>
-					<div class="d-flex jc-sa fs-13 fw-9 tags-div">
-						{% for tag in tags %}
-							{% if tag.day.day == "Week-end" %}
-								<span class="tag">
-									{{ tag.name }}
-								</span>
-								<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
-									<input type="hidden" name="_method" value="DELETE">
-									<input type="hidden" name="_token" value="{{ csrf_token('deleteTag' ~ tag.id) }}">
-									<button>
-										<i class="icon ion-android-delete"></i>
-									</button>
-								</form>
-							{% endif %}
-						{% endfor %}
-					</div>
+							<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
+								<input type="hidden" name="_method" value="DELETE">
+								<input type="hidden" name="_token" value="{{ csrf_token('deleteTag' ~ tag.id) }}">
+								<button class="btn-delete">
+									<i class="icon ion-android-delete"></i>
+								</button>
+							</form>
+						{% endif %}
+					{% endfor %}
 				</div>
 			</div>
 		</div>
-		<div class="btn-tag-task-reset">
-			<button class="bullet-btn"><a class="black" href="{{ path('create_task') }}">Ajouter une tâche</a></btn>
-			<button class="bullet-btn tag-btn-bullet"><a class="black" href="{{ path('create_tag') }}">Ajouter un tag</a></btn>
-			<form method="POST" action="{{ path('bullet_reset') }}" onsubmit="return confirm('La réinitialisation du bullet a été effectuée')">
-				<input type="hidden" name="_method" value="DELETE">
-				<input type="hidden" name="_token" value="{{ csrf_token('deleteBullet') }}">
-				<button class="bullet-btn">Réinitialiser le bullet</button>
-			</form>
+		<div class="card-bullet">
+			<div class="card-bullet_content bullet-size">
+				<h1 class="txt-center">Vendredi</h1>
+				<div class="fs-20 card-bullet-semaine">
+					{% for task in tasks %}
+						{% if task.day.day == "Vendredi" %}
+							{{ task.hour|date("h:i") }}
+							:
+							{{ task.name }}
+
+							<a class="modif-bullet" href="{{path('edit_task',{'id':task.id})}}">
+								<i class="fa-regularfa-pen-to-square"></i>
+							</a>=======<a class="modif-bullet" href="{{path('edit_task',{'id':task.id})}}">
+								<i class="iconion-editedit"></i>
+							</a>
+							=======
+							<a class="modif-bullet" href="{{ path('edit_task', {'id': task.id}) }}">
+								<i class="icon ion-edit edit"></i>
+							</a>
+							<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
+								<input type="hidden" name="_method" value="DELETE">
+								<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
+								<button class="btn-delete">
+									<i class="icon ion-android-delete"></i>
+								</button>
+							</form>
+						{% endif %}
+					{% endfor %}
+				</div>
+				<div class="d-flex jc-sa fs-13 fw-9 tags-div">
+					{% for tag in tags %}
+						{% if tag.day.day == "Vendredi" %}
+							<span class="tag">
+								{{ tag.name }}
+							</span>
+
+							<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
+								<input type="hidden" name="_method" value="DELETE">
+								<input type="hidden" name="_token" value="{{ csrf_token('deleteTag' ~ tag.id) }}">
+								<button class="btn-delete">
+									<i class="icon ion-android-delete"></i>
+								</button>
+							</form>
+						{% endif %}
+					{% endfor %}
+				</div>
+			</div>
 		</div>
-
-		<section class="bullet-goal">
-			<h2>Objectifs de la semaine :</h2>
-			{% for goal in goals %}
-				<div class="form-bullet-goal">
-					<form method="POST" action="{{ path('delete_goal', {'id': goal.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
-						<input type="hidden" name="_method" value="DELETE">
-						<input type="hidden" name="_token" value="{{ csrf_token('deleteGoal' ~ goal.id) }}">
-						<button>
-							<i class="icon ion-android-delete"></i>
-						</button>
-					</form>
-					<div class="goal-name">
-						{{ goal.name }}
-					</div>
+		<div class="card-bullet">
+			<div class="card-bullet_content bullet-size">
+				<h1 class="txt-center">Week-end</h1>
+				<div class="fs-20 card-bullet-semaine">
+					{% for task in tasks %}
+						{% if task.day.day == "Week-end" %}
+							{{ task.hour|date("h:i") }}
+							:
+							{{ task.name }}
+							<a class="modif-bullet" href="{{ path('edit_task', {'id': task.id}) }}">
+								<i class="fa-regular fa-pen-to-square"></i>
+							</a>
+							<a class="modif-bullet" href="{{ path('edit_task', {'id': task.id}) }}">
+								<i class="icon ion-edit edit"></i>
+							</a>
+							<a class="modif-bullet" href="{{ path('edit_task', {'id': task.id}) }}">
+								<i class="icon ion-edit edit"></i>
+							</a>
+							<form method="POST" action="{{ path('delete_task', {'id': task.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
+								<input type="hidden" name="_method" value="DELETE">
+								<input type="hidden" name="_token" value="{{ csrf_token('deleteTask' ~ task.id) }}">
+								<button class="btn-delete">
+									<i class="icon ion-android-delete"></i>
+								</button>
+							</form>
+						{% endif %}
+					{% endfor %}
 				</div>
-			{% endfor %}
-			<div class="bullet-goal-btn">
-				<button class="bullet-btn"><a class="black" href="{{ path('create_goal') }}">Ajouter un objectif</a></btn>
-			</div>
-		</section>
-
-		<section class="bullet-list">
-			<h2>Liste de course :</h2>
-			{% for shop in shops %}
-				<div class="form-bullet-list">
-					<form method="POST" action="{{ path('delete_shop', {'id': shop.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
-						<input type="hidden" name="_method" value="DELETE">
-						<input type="hidden" name="_token" value="{{ csrf_token('deleteShop' ~ shop.id) }}">
-						<button>
-							<i class="icon ion-android-delete"></i>
-						</button>
-					</form>
-					<div class="shop-list">
-						{{ shop.name }}
-						{{ shop.prix }}
-						{{ shop.category.name }}
-					</div>
+				<div class="d-flex jc-sa fs-13 fw-9 tags-div">
+					{% for tag in tags %}
+						{% if tag.day.day == "Week-end" %}
+							<span class="tag">
+								{{ tag.name }}
+							</span>
+							<form method="POST" action="{{ path('delete_tag', {'id': tag.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
+								<input type="hidden" name="_method" value="DELETE">
+								<input type="hidden" name="_token" value="{{ csrf_token('deleteTag' ~ tag.id) }}">
+								<button class="btn-delete">
+									<i class="icon ion-android-delete"></i>
+								</button>
+							</form>
+						{% endif %}
+					{% endfor %}
 				</div>
-			{% endfor %}
-			<div class="bullet-goal-list">
-				<button class="bullet-btn"><a class="black" href="{{ path('create_shop') }}">Ajouter un article</a></btn>
 			</div>
-		</section>
+		</div>
+	</div>
+	<div class="btn-tag-task-reset">
+		<button class="bullet-btn">
+			<a class="black" href="{{ path('create_task') }}">Ajouter une tâche</a>
+		</btn>
+		<button class="bullet-btn tag-btn-bullet">
+			<a class="black" href="{{ path('create_tag') }}">Ajouter un tag</a>
+		</btn>
+		<form method="POST" action="{{ path('bullet_reset') }}" onsubmit="return confirm('La réinitialisation du bullet a été effectuée')">
+			<input type="hidden" name="_method" value="DELETE">
+			<input type="hidden" name="_token" value="{{ csrf_token('deleteBullet') }}">
+			<button class="bullet-btn">Réinitialiser le bullet</button>
+		</form>
+	</div>
 
+	<section class="bullet-goal">
+		<h2>Objectifs de la semaine :</h2>
+		<div class="goal-tableau">
+			<table class="">
+				<tbody>
+					<tr class="tr-tableau-bullet">
+						<td class="">
+							<strong>Objectifs restants</strong>
+						</td>
+						<td class="">
+							<strong>Objectifs validés</strong>
+						</td>
+					</tr>
+					{% for goal in goals %}
+						<div class="form-bullet-goal">
+							<form method="POST" action="{{ path('delete_goal', {'id': goal.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
+								<input type="hidden" name="_method" value="DELETE">
+								<input type="hidden" name="_token" value="{{ csrf_token('deleteGoal' ~ goal.id) }}">
+								<button class="btn-delete">
+									<i class="icon ion-android-delete"></i>
+								</button>
+							</form>
+							<td>
+								<div class="goal-name">
+									<button class="goalRestant" onclick="goalAddClass()" id="btn-goal-name">{{ goal.name }}</button>
+								</div>
+							</td>
+						</div>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<div class="bullet-goal-btn">
+			<button class="bullet-btn">
+				<a class="black" href="{{ path('create_goal') }}">Ajouter un objectif</a>
+			</btn>
+		</div>
 	</section>
-{% endblock %}
+
+	<section class="bullet-list">
+		<h2>Liste de course :</h2>
+		<div class="shop-tableau">
+			<table class="">
+				<tbody>
+					<tr class="tr-tableau-bullet">
+						<td class="">
+							<strong>Articles restants</strong>
+						</td>
+						<td class="">
+							<strong>Articles validés</strong>
+						</td>
+					</tr>
+					{% for shop in shops %}
+						<div class="form-bullet-list" id="form-valide">
+							<form method="POST" action="{{ path('delete_shop', {'id': shop.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
+								<input type="hidden" name="_method" value="DELETE">
+								<input type="hidden" name="_token" value="{{ csrf_token('deleteShop' ~ shop.id) }}">
+								<button class="btn-delete">
+									<i class="icon ion-android-delete"></i>
+								</button>
+							</form>
+							<div class="shop-list">
+								<td>
+									<button class="shopRestant" onclick="shopAddClass()" id="btn-shop-name">{{ shop.name }}</button>
+									{{ shop.prix }}
+									€
+									<!-- {{ shop.category.name }} -->
+								</td>
+							</div>
+						</div>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<div class="bullet-goal-list">
+			<button class="bullet-btn">
+				<a class="black" href="{{ path('create_shop') }}">Ajouter un article</a>
+			</btn>
+		</div>
+	</section>
+
+</section>{% endblock %}

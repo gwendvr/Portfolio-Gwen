@@ -23,6 +23,9 @@ class Shop
     #[ORM\JoinColumn(nullable: false)]
     private $category;
 
+    #[ORM\Column(type: 'boolean', nullable: true)]
+    private $unValide;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class Shop
     public function setCategory(?ShopCategory $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getUnValide(): ?bool
+    {
+        return $this->unValide;
+    }
+
+    public function setUnValide(?bool $unValide): self
+    {
+        $this->unValide = $unValide;
 
         return $this;
     }

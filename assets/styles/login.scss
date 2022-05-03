@@ -2,6 +2,9 @@ $cube_body: #212121;
 $cube_gradient_last_color: rgba(0, 212, 255, 1);
 $cube_gradient: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(52, 9, 121, 1) 37%, $cube_gradient_last_color 94%);
 ;
+
+/******** FORM ********/
+
 .form {
     width: 300px;
     padding: 64px 15px 24px;
@@ -45,6 +48,9 @@ $cube_gradient: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(52, 9, 121, 1)
         cursor: pointer;
     }
 }
+
+
+/******** CUBES ********/
 
 .block-cube {
     position: relative;

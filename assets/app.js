@@ -21,3 +21,4 @@ import './styles/parcours.scss';
 // start the Stimulus application
 import './bootstrap';
 import './js/game.js';
+import './js/bullet-valide.js';

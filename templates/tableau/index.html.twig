@@ -3,16 +3,22 @@
 {% block title %}Tableau des compétences{% endblock %}
 
 {% block body %}
+
+	<!-- TABLEAU -->
 	<div class="table-competence"><span>Tableau des Compétences</span>
         <div class="table-competence-content">
 			<table class="width-100">
 				<tbody>
+
+					<!-- EN-TETE -->
 					<tr class="txt-center upper blue">
 						<td class="table-case"><strong>Compétence</strong></td>
 						<td class="table-case width-15"><strong>date de début</strong></td>
 						<td class="table-case width-15"><strong>date de fin</strong></td>
 						<td class="table-case"><strong>Catégorie</strong></td>
 					</tr>
+
+					<!-- LES COMPETENCES -->
 					{% for competence in competences %}
 						<tr class="txt-center white fs-13">
 							<td class="table-case">{{ competence.titre }}</td>
