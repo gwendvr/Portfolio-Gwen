@@ -25,6 +25,9 @@ class Project
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $lien;
 
+    #[ORM\ManyToOne(targetEntity: CompetenceProject::class, inversedBy: 'project')]
+    private $competence;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +77,18 @@ class Project
     public function setLien(?string $lien): self
     {
         $this->lien = $lien;
+
+        return $this;
+    }
+
+    public function getCompetence(): ?CompetenceProject
+    {
+        return $this->competence;
+    }
+
+    public function setCompetence(?CompetenceProject $competence): self
+    {
+        $this->competence = $competence;
 
         return $this;
     }

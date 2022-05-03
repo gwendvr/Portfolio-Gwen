@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'une compétence{% endblock %}
+
+{% block body %}
+	<section id="form">
+		{{ form_start(form) }}
+		
+		<div class="form-modif">
+			<div class='title'>
+				<h1>
+					Création d'une compétence
+				</h1>
+			</div>
+
+			<div class='input'>
+				<h2>Compétence :</h2>
+				{{ form_widget(form.name) }}
+			</div>
+
+			{{ form_widget(form.Enregistrer) }}
+		</div>
+		{{ form_end(form) }}
+	</section>
+{% endblock %}

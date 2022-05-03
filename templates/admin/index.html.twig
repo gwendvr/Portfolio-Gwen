@@ -42,10 +42,16 @@
 				<img src="{{ project.image }}" />
 			{% endfor %}
 		</ol>
+		
 		<div class="d-flex">
+			<div class="d-flex">
 				<a  class="pulse button-modif" href="{{ path('create_project') }}">Créer un projet</a>
 			</div>
-
+			<div class="d-flex">
+				<a  class="pulse button-modif" href="{{ path('create_project_competence') }}">Ajouter une Compétence</a>
+			</div>
+		</div>
+		
 		<!-- SCROLL -->
 		<div class="scroll-top">
     		<a href="#top">

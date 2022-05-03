@@ -3,10 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\CompetenceProject;
 use App\Entity\Project;
 use App\Entity\TableauCompetence;
 use App\Form\CatType;
 use App\Form\CompetenceType;
+use App\Form\ProjectCompetenceType;
 use App\Form\ProjectType;
 use App\Repository\ProjectRepository;
 use App\Repository\TableauCompetenceRepository;
@@ -150,6 +152,34 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('app_admin');
         }
         return $this->render("admin/project/CreateProject.html.twig", [
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * Page création d'une compétence
+     * 
+     * @Route("/admin/createProjectCompetence", name="create_project_competence")
+     */
+    public function createProjetCompetence(Request $request) : Response
+    {
+        //Ajout d'une nouvelle compétence
+        $competenceProject = new CompetenceProject;
+
+        //Création d'un formulaire pour une nouvelle compétence
+        $form = $this->createForm(ProjectCompetenceType::class, $competenceProject);
+        $form->handleRequest($request);
+        
+        //On vérifie si le formulaire est envoyé et valide
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            //On envoie en base de données la nouvelle compétence
+            $this->em->persist($competenceProject);
+            $this->em->flush();
+
+            return $this->redirectToRoute('app_admin');
+        }
+        return $this->render("admin/project/CreateCompetence.html.twig", [
             'form' => $form->createView()
         ]);
     }
