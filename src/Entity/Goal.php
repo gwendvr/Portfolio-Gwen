@@ -15,10 +15,7 @@ class Goal
 
     #[ORM\Column(type: 'string', length: 150)]
     private $name;
-
-    #[ORM\Column(type: 'boolean', nullable: true)]
-    private $unValide;
-
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -32,18 +29,6 @@ class Goal
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getUnValide(): ?bool
-    {
-        return $this->unValide;
-    }
-
-    public function setUnValide(?bool $unValide): self
-    {
-        $this->unValide = $unValide;
 
         return $this;
     }
