@@ -351,9 +351,11 @@
 									<i class="icon ion-android-delete"></i>
 								</button>
 							</form>
-							<div class="goal-name">
-								<button class="goalRestant" onclick="goalAddClass()" id="btn-goal-name">{{ goal.name }}</button>
-							</div>
+							<td>
+								<div class="goal-name">
+									<button class="goalRestant" onclick="goalAddClass()" id="btn-goal-name">{{ goal.name }}</button>
+								</div>
+							</td>
 						</div>
 					{% endfor %}
 				</tbody>
@@ -389,10 +391,12 @@
 								</button>
 							</form>
 							<div class="shop-list">
-								<button class="shopRestant" onclick="shopAddClass()" id="btn-shop-name">{{ shop.name }}</button>
-								{{ shop.prix }}
-								€
-								<!-- {{ shop.category.name }} -->
+								<td>
+									<button class="shopRestant" onclick="shopAddClass()" id="btn-shop-name">{{ shop.name }}</button>
+									{{ shop.prix }}
+									€
+									<!-- {{ shop.category.name }} -->
+								</td>
 							</div>
 						</div>
 					{% endfor %}
